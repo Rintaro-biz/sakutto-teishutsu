@@ -450,6 +450,16 @@
         <input type="text" id="title" placeholder="例）〇〇について解説してみた">
       </div>
 
+      <div class="field-row" id="field-progress">
+        <div class="section-title">進捗</div>
+        <textarea id="progressText" class="textarea-paste" placeholder="例）撮影完了、編集中"></textarea>
+      </div>
+
+      <div class="field-row" id="field-deadline">
+        <div class="section-title">初校納期</div>
+        <input type="date" id="deadlineDate">
+      </div>
+
       <div class="field-row" id="section-frameio">
         <div class="section-title">Frameioリンク</div>
         <input type="text" id="frameioSingle" placeholder="URLを貼り付け">
@@ -579,6 +589,8 @@ const PLACEHOLDERS = [
   { key: 'timestampsBlock', label: '見出しタイムスタンプ', group: 'free' },
   { key: 'sourcesBlock', label: 'ソース元', group: 'free' },
   { key: 'notesBlock', label: '不明点＆共有事項', group: 'free' },
+  { key: 'progressText', label: '進捗', group: 'free' },
+  { key: 'deadlineText', label: '初校納期（日付選択）', group: 'free' },
 ];
 const PLACEHOLDER_GROUP_LABELS = {
   other: '',
@@ -596,6 +608,14 @@ const HEADING_DEFAULTS = {
   revisionsBlock: '▼修正点',
   notesBlock: '・不明点＆共有事項',
 };
+
+function formatDeadline(dateStr) {
+  if (!dateStr) return '';
+  const d = new Date(`${dateStr}T00:00:00`);
+  if (isNaN(d.getTime())) return '';
+  const days = ['日', '月', '火', '水', '木', '金', '土'];
+  return `${d.getMonth() + 1}/${d.getDate()}(${days[d.getDay()]})`;
+}
 
 function customHeading(template, key) {
   const m = template.match(new RegExp(`\\{${key}(?::([^}]*))?\\}`));
@@ -698,6 +718,22 @@ const DEFAULT_PATTERNS = [
 
 よろしくお願いいたします！`,
   },
+  {
+    id: 'progress_report',
+    label: '進捗報告',
+    template: `【進捗報告】
+お世話になっております！
+
+現在の進捗をご報告させていただきます。
+—--------------------------------------
+{titleLine}
+・{progressText}
+
+初校納期：{deadlineText}
+
+{notesBlock}
+—--------------------------------------`,
+  },
 ];
 
 function loadPatterns() {
@@ -746,6 +782,8 @@ const state = {
   timestampsText: '',
   sourcesText: '',
   notes: '',
+  progressText: '',
+  deadlineDate: '',
   modal: { patternEditing: null },
 };
 state.patternId = state.patterns[0].id;
@@ -797,6 +835,8 @@ function renderFieldVisibility() {
   $('section-timestamps').style.display = usesPlaceholder(p, 'timestampsBlock') ? '' : 'none';
   $('section-sources').style.display = usesPlaceholder(p, 'sourcesBlock') ? '' : 'none';
   $('field-notes').style.display = usesPlaceholder(p, 'notesBlock') ? '' : 'none';
+  $('field-progress').style.display = usesPlaceholder(p, 'progressText') ? '' : 'none';
+  $('field-deadline').style.display = usesPlaceholder(p, 'deadlineText') ? '' : 'none';
   renderItemsUI();
 }
 
@@ -989,7 +1029,10 @@ function fillTemplate(pattern) {
   const notesVal = state.notes.trim();
   const notesBlock = notesVal ? `${headings.notesBlock}\n${notesVal}` : MARK;
 
-  const values = { channel, titleLine, frameioBlock, checkUrlBlock, dataUrlBlock, promaneBlock, revisionsBlock, timestampsBlock, sourcesBlock, notesBlock };
+  const progressText = state.progressText.trim() || '※進捗を記入';
+  const deadlineText = formatDeadline(state.deadlineDate) || '※日付を選択';
+
+  const values = { channel, titleLine, frameioBlock, checkUrlBlock, dataUrlBlock, promaneBlock, revisionsBlock, timestampsBlock, sourcesBlock, notesBlock, progressText, deadlineText };
 
   Object.keys(values).forEach(key => {
     text = text.split(`{${key}}`).join(values[key]);
@@ -1020,9 +1063,11 @@ function clearAllFields() {
   state.timestampsText = '';
   state.sourcesText = '';
   state.timestampSummary = false;
+  state.progressText = '';
+  state.deadlineDate = '';
 
   $('channel').value = '';
-  ['title', 'frameioSingle', 'checkUrlSingle', 'dataUrlSingle', 'promaneSingle', 'notes'].forEach(id => { $(id).value = ''; });
+  ['title', 'frameioSingle', 'checkUrlSingle', 'dataUrlSingle', 'promaneSingle', 'notes', 'progressText', 'deadlineDate'].forEach(id => { $(id).value = ''; });
   $('revisionsText').value = '';
   $('timestampsText').value = '';
   $('sourcesText').value = '';
@@ -1268,7 +1313,7 @@ function init() {
     updatePreview();
   });
 
-  ['title', 'frameioSingle', 'checkUrlSingle', 'dataUrlSingle', 'promaneSingle', 'notes'].forEach(id => {
+  ['title', 'frameioSingle', 'checkUrlSingle', 'dataUrlSingle', 'promaneSingle', 'notes', 'progressText', 'deadlineDate'].forEach(id => {
     $(id).addEventListener('input', e => { state[id] = e.target.value; updatePreview(); });
   });
   $('channel').addEventListener('change', e => { state.channel = e.target.value; updatePreview(); });
