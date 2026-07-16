@@ -543,7 +543,7 @@
       <div class="field" style="margin-bottom:0;">
         <label>テンプレート本文</label>
         <div class="legend" id="patLegend"></div>
-        <p class="modal-hint">タグをクリックするとカーソル位置に挿入されます。{channel}{timestampsBlock}{sourcesBlock}{notesBlock} は入力が空の場合、行ごと自動的に消えます。<br>見出しの文言を変えたい場合は、{frameioBlock:Frameio} のように「:」の後に文言を書くと見出しがその文言に差し替わります（▼は自動で付きます）。対象: Frameioリンク・確認用URL・動画データ・プロマネ・見出しタイムスタンプ・ソース元・修正点</p>
+        <p class="modal-hint">タグをクリックするとカーソル位置に挿入されます。{channel}{timestampsBlock}{sourcesBlock}{notesBlock} は入力が空の場合、行ごと自動的に消えます。<br>見出しの文言を変えたい場合は、{frameioBlock:▼Frameio} のように「:」の後に文言をそのまま書くと見出しがその文言に差し替わります。対象: Frameioリンク・確認用URL・動画データ・プロマネ・見出しタイムスタンプ・ソース元・修正点</p>
         <textarea id="patTemplateInput" class="textarea-template"></textarea>
       </div>
       <div class="modal-footer">
@@ -572,7 +572,7 @@ const PLACEHOLDERS = [
 ];
 
 const HEADING_DEFAULTS = {
-  frameioBlock: '▼Frameioリンク',
+  frameioBlock: '▼Frameio',
   checkUrlBlock: '▼確認用URL',
   dataUrlBlock: '▼動画データ',
   promaneBlock: '▼プロマネ',
@@ -584,8 +584,7 @@ const HEADING_DEFAULTS = {
 function customHeading(template, key) {
   const m = template.match(new RegExp(`\\{${key}(?::([^}]*))?\\}`));
   if (m && m[1] && m[1].trim()) {
-    const label = m[1].trim();
-    return label.startsWith('▼') ? label : `▼${label}`;
+    return m[1].trim();
   }
   return HEADING_DEFAULTS[key];
 }
@@ -1075,11 +1074,13 @@ function renderLegend() {
   const el = $('patLegend');
   el.innerHTML = '';
   PLACEHOLDERS.forEach(ph => {
+    const customizable = ph.key in HEADING_DEFAULTS;
+    const token = customizable ? `{${ph.key}:ここを書き換え}` : `{${ph.key}}`;
     const chip = document.createElement('button');
     chip.type = 'button';
     chip.className = 'legend-chip';
-    chip.textContent = `{${ph.key}} ${ph.label}`;
-    chip.addEventListener('click', () => insertAtCursor($('patTemplateInput'), `{${ph.key}}`));
+    chip.textContent = `${token} ${ph.label}`;
+    chip.addEventListener('click', () => insertAtCursor($('patTemplateInput'), token));
     el.appendChild(chip);
   });
 }
