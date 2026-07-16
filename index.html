@@ -390,7 +390,17 @@
     display: flex;
     flex-wrap: wrap;
     gap: 6px;
+  }
+  .legend-group {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 8px;
     margin-bottom: 8px;
+  }
+  .legend-group-title {
+    font-size: 11px;
+    color: var(--sub);
+    margin: 0 0 6px;
   }
   .legend-chip {
     font-size: 11px;
@@ -559,17 +569,22 @@ const STORAGE_PATTERNS = 'teishakubun_patterns_v1';
 const STORAGE_CHANNELS = 'teishakubun_channels_v1';
 
 const PLACEHOLDERS = [
-  { key: 'channel', label: '【チャンネル名】' },
-  { key: 'titleLine', label: '動画タイトル（複数可）' },
-  { key: 'frameioBlock', label: 'Frameioリンク（複数可）' },
-  { key: 'checkUrlBlock', label: '確認用URL（複数可）' },
-  { key: 'dataUrlBlock', label: '動画データURL（複数可）' },
-  { key: 'promaneBlock', label: 'プロマネURL（複数可）' },
-  { key: 'revisionsBlock', label: '修正点' },
-  { key: 'timestampsBlock', label: '見出しタイムスタンプ' },
-  { key: 'sourcesBlock', label: 'ソース元' },
-  { key: 'notesBlock', label: '不明点＆共有事項' },
+  { key: 'channel', label: '【チャンネル名】', group: 'other' },
+  { key: 'titleLine', label: '動画タイトル（複数可）', group: 'url' },
+  { key: 'frameioBlock', label: 'Frameioリンク（複数可）', group: 'url' },
+  { key: 'checkUrlBlock', label: '確認用URL（複数可）', group: 'url' },
+  { key: 'dataUrlBlock', label: '動画データURL（複数可）', group: 'url' },
+  { key: 'promaneBlock', label: 'プロマネURL（複数可）', group: 'url' },
+  { key: 'revisionsBlock', label: '修正点', group: 'free' },
+  { key: 'timestampsBlock', label: '見出しタイムスタンプ', group: 'free' },
+  { key: 'sourcesBlock', label: 'ソース元', group: 'free' },
+  { key: 'notesBlock', label: '不明点＆共有事項', group: 'free' },
 ];
+const PLACEHOLDER_GROUP_LABELS = {
+  other: '',
+  url: 'URL・タイトル系（複数可）',
+  free: '自由記載系',
+};
 
 const HEADING_DEFAULTS = {
   frameioBlock: '▼Frameio',
@@ -1070,18 +1085,36 @@ function insertAtCursor(textarea, text) {
   textarea.selectionStart = textarea.selectionEnd = start + text.length;
   textarea.focus();
 }
+function makeLegendChip(ph) {
+  const customizable = ph.key in HEADING_DEFAULTS;
+  const token = customizable ? `{${ph.key}:ここを書き換え}` : `{${ph.key}}`;
+  const chip = document.createElement('button');
+  chip.type = 'button';
+  chip.className = 'legend-chip';
+  chip.textContent = `{${ph.key}} ${ph.label}`;
+  chip.addEventListener('click', () => insertAtCursor($('patTemplateInput'), token));
+  return chip;
+}
 function renderLegend() {
   const el = $('patLegend');
   el.innerHTML = '';
-  PLACEHOLDERS.forEach(ph => {
-    const customizable = ph.key in HEADING_DEFAULTS;
-    const token = customizable ? `{${ph.key}:ここを書き換え}` : `{${ph.key}}`;
-    const chip = document.createElement('button');
-    chip.type = 'button';
-    chip.className = 'legend-chip';
-    chip.textContent = `${token} ${ph.label}`;
-    chip.addEventListener('click', () => insertAtCursor($('patTemplateInput'), token));
-    el.appendChild(chip);
+  ['other', 'url', 'free'].forEach(groupKey => {
+    const items = PLACEHOLDERS.filter(ph => ph.group === groupKey);
+    if (!items.length) return;
+    const groupLabel = PLACEHOLDER_GROUP_LABELS[groupKey];
+    const wrap = document.createElement('div');
+    wrap.className = groupLabel ? 'legend-group' : '';
+    if (groupLabel) {
+      const title = document.createElement('p');
+      title.className = 'legend-group-title';
+      title.textContent = groupLabel;
+      wrap.appendChild(title);
+    }
+    const chips = document.createElement('div');
+    chips.className = 'legend';
+    items.forEach(ph => chips.appendChild(makeLegendChip(ph)));
+    wrap.appendChild(chips);
+    el.appendChild(wrap);
   });
 }
 function openPatternModal() {
