@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>サクッと提出文</title>
+<style>
+  :root {
+    --bg: #f5f6f8;
+    --panel: #ffffff;
+    --border: #e1e4e8;
+    --text: #24292f;
+    --sub: #6b7280;
+    --accent: #2563eb;
+    --accent-hover: #1d4ed8;
+    --accent-soft: #eff4ff;
+    --success: #16a34a;
+    --radius: 10px;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Yu Gothic UI", "Segoe UI", sans-serif;
+    background-color: var(--bg);
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDgiIGhlaWdodD0iMjA4IiB2aWV3Qm94PSIwIDAgMjA4IDIwOCI+PHBvbHlnb24gcG9pbnRzPSIwLDAgMjYsMCAwLDI2IiBmaWxsPSJibGFjayIgZmlsbC1vcGFjaXR5PSIwLjAyOSIvPjxwb2x5Z29uIHBvaW50cz0iMjYsMCAyNiwyNiAwLDI2IiBmaWxsPSJibGFjayIgZmlsbC1vcGFjaXR5PSIwLjAxOCIvPjxwb2x5Z29uIHBvaW50cz0iMjYsMCA1MiwwIDUyLDI2IiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjAzNSIvPjxwb2x5Z29uIHBvaW50cz0iMjYsMCA1MiwyNiAyNiwyNiIgZmlsbD0iYmxhY2siIGZpbGwtb3BhY2l0eT0iMC4wMTYiLz48cG9seWdvbiBwb2ludHM9IjUyLDAgNzgsMCA1MiwyNiIgZmlsbD0iYmxhY2siIGZpbGwtb3BhY2l0eT0iMC4wMjMiLz48cG9seWdvbiBwb2ludHM9Ijc4LDAgNzgsMjYgNTIsMjYiIGZpbGw9IndoaXRlIiBmaWxsLW9wYWNpdHk9IjAuMDE3Ii8+PHBvbHlnb24gcG9pbnRzPSI3OCwwIDEwNCwwIDEwNCwyNiIgZmlsbD0iYmxhY2siIGZpbGwtb3BhY2l0eT0iMC4wMzciLz48cG9seWdvbiBwb2ludHM9Ijc4LDAgMTA0LDI2IDc4LDI2IiBmaWxsPSJibGFjayIgZmlsbC1vcGFjaXR5PSIwLjAzNSIvPjxwb2x5Z29uIHBvaW50cz0iMTA0LDAgMTMwLDAgMTA0LDI2IiBmaWxsPSJibGFjayIgZmlsbC1vcGFjaXR5PSIwLjAxNyIvPjxwb2x5Z29uIHBvaW50cz0iMTMwLDAgMTMwLDI2IDEwNCwyNiIgZmlsbD0iYmxhY2siIGZpbGwtb3BhY2l0eT0iMC4wMjUiLz48cG9seWdvbiBwb2ludHM9IjEzMCwwIDE1NiwwIDEzMCwyNiIgZmlsbD0iYmxhY2siIGZpbGwtb3BhY2l0eT0iMC4wMzUiLz48cG9seWdvbiBwb2ludHM9IjE1NiwwIDE1NiwyNiAxMzAsMjYiIGZpbGw9ImJsYWNrIiBmaWxsLW9wYWNpdHk9IjAuMDE5Ii8+PHBvbHlnb24gcG9pbnRzPSIxNTYsMCAxODIsMCAxODIsMjYiIGZpbGw9ImJsYWNrIiBmaWxsLW9wYWNpdHk9IjAuMDI4Ii8+PHBvbHlnb24gcG9pbnRzPSIxNTYsMCAxODIsMjYgMTU2LDI2IiBmaWxsPSJibGFjayIgZmlsbC1vcGFjaXR5PSIwLjAzNSIvPjxwb2x5Z29uIHBvaW50cz0iMTgyLDAgMjA4LDAgMjA4LDI2IiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjAzOSIvPjxwb2x5Z29uIHBvaW50cz0iMTgyLDAgMjA4LDI2IDE4MiwyNiIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC4wNDIiLz48cG9seWdvbiBwb2ludHM9IjAsMjYgMjYsMjYgMCw1MiIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC4wMjgiLz48cG9seWdvbiBwb2ludHM9IjI2LDI2IDI2LDUyIDAsNTIiIGZpbGw9ImJsYWNrIiBmaWxsLW9wYWNpdHk9IjAuMDQzIi8+PHBvbHlnb24gcG9pbnRzPSIyNiwyNiA1MiwyNiA1Miw1MiIgZmlsbD0iYmxhY2siIGZpbGwtb3BhY2l0eT0iMC4wMTgiLz48cG9seWdvbiBwb2ludHM9IjI2LDI2IDUyLDUyIDI2LDUyIiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjAzMyIvPjxwb2x5Z29uIHBvaW50cz0iNTIsMjYgNzgsMjYgNzgsNTIiIGZpbGw9IndoaXRlIiBmaWxsLW9wYWNpdHk9IjAuMDI1Ii8+PHBvbHlnb24gcG9pbnRzPSI1MiwyNiA3OCw1MiA1Miw1MiIgZmlsbD0iYmxhY2siIGZpbGwtb3BhY2l0eT0iMC4wMTkiLz48cG9seWdvbiBwb2ludHM9Ijc4LDI2IDEwNCwyNiA3OCw1MiIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC4wMiIvPjxwb2x5Z29uIHBvaW50cz0iMTA0LDI2IDEwNCw1MiA3OCw1MiIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC4wMyIvPjxwb2x5Z29uIHBvaW50cz0iMTA0LDI2IDEzMCwyNiAxMzAsNTIiIGZpbGw9ImJsYWNrIiBmaWxsLW9wYWNpdHk9IjAuMDQyIi8+PHBvbHlnb24gcG9pbnRzPSIxMDQsMjYgMTMwLDUyIDEwNCw1MiIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC4wMjciLz48cG9seWdvbiBwb2ludHM9IjEzMCwyNiAxNTYsMjYgMTMwLDUyIiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjAzNSIvPjxwb2x5Z29uIHBvaW50cz0iMTU2LDI2IDE1Niw1MiAxMzAsNTIiIGZpbGw9IndoaXRlIiBmaWxsLW9wYWNpdHk9IjAuMDE3Ii8+PHBvbHlnb24gcG9pbnRzPSIxNTYsMjYgMTgyLDI2IDE1Niw1MiIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC4wMzIiLz48cG9seWdvbiBwb2ludHM9IjE4MiwyNiAxODIsNTIgMTU2LDUyIiBmaWxsPSJibGFjayIgZmlsbC1vcGFjaXR5PSIwLjAxNyIvPjxwb2x5Z29uIHBvaW50cz0iMTgyLDI2IDIwOCwyNiAyMDgsNTIiIGZpbGw9IndoaXRlIiBmaWxsLW9wYWNpdHk9IjAuMDI1Ii8+PHBvbHlnb24gcG9pbnRzPSIxODIsMjYgMjA4LDUyIDE4Miw1MiIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC4wNDYiLz48cG9seWdvbiBwb2ludHM9IjAsNTIgMjYsNTIgMCw3OCIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC4wMjciLz48cG9seWdvbiBwb2ludHM9IjI2LDUyIDI2LDc4IDAsNzgiIGZpbGw9ImJsYWNrIiBmaWxsLW9wYWNpdHk9IjAuMDMyIi8+PHBvbHlnb24gcG9pbnRzPSIyNiw1MiA1Miw1MiAyNiw3OCIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC4wMiIvPjxwb2x5Z29uIHBvaW50cz0iNTIsNTIgNTIsNzggMjYsNzgiIGZpbGw9ImJsYWNrIiBmaWxsLW9wYWNpdHk9IjAuMDI5Ii8+PHBvbHlnb24gcG9pbnRzPSI1Miw1MiA3OCw1MiA3OCw3OCIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC4wMTgiLz48cG9seWdvbiBwb2ludHM9IjUyLDUyIDc4LDc4IDUyLDc4IiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjAyOSIvPjxwb2x5Z29uIHBvaW50cz0iNzgsNTIgMTA0LDUyIDc4LDc4IiBmaWxsPSJibGFjayIgZmlsbC1vcGFjaXR5PSIwLjA0NCIvPjxwb2x5Z29uIHBvaW50cz0iMTA0LDUyIDEwNCw3OCA3OCw3OCIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC4wNCIvPjxwb2x5Z29uIHBvaW50cz0iMTA0LDUyIDEzMCw1MiAxMzAsNzgiIGZpbGw9IndoaXRlIiBmaWxsLW9wYWNpdHk9IjAuMDQ5Ii8+PHBvbHlnb24gcG9pbnRzPSIxMDQsNTIgMTMwLDc4IDEwNCw3OCIgZmlsbD0iYmxhY2siIGZpbGwtb3BhY2l0eT0iMC4wMTgiLz48cG9seWdvbiBwb2ludHM9IjEzMCw1MiAxNTYsNTIgMTMwLDc4IiBmaWxsPSJibGFjayIgZmlsbC1vcGFjaXR5PSIwLjAxNSIvPjxwb2x5Z29uIHBvaW50cz0iMTU2LDUyIDE1Niw3OCAxMzAsNzgiIGZpbGw9ImJsYWNrIiBmaWxsLW9wYWNpdHk9IjAuMDI0Ii8+PHBvbHlnb24gcG9pbnRzPSIxNTYsNTIgMTgyLDUyIDE1Niw3OCIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC4wMzQiLz48cG9seWdvbiBwb2ludHM9IjE4Miw1MiAxODIsNzggMTU2LDc4IiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjA0OCIvPjxwb2x5Z29uIHBvaW50cz0iMTgyLDUyIDIwOCw1MiAyMDgsNzgiIGZpbGw9ImJsYWNrIiBmaWxsLW9wYWNpdHk9IjAuMDMxIi8+PHBvbHlnb24gcG9pbnRzPSIxODIsNTIgMjA4LDc4IDE4Miw3OCIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC4wMjkiLz48cG9seWdvbiBwb2ludHM9IjAsNzggMjYsNzggMCwxMDQiIGZpbGw9IndoaXRlIiBmaWxsLW9wYWNpdHk9IjAuMDM3Ii8+PHBvbHlnb24gcG9pbnRzPSIyNiw3OCAyNiwxMDQgMCwxMDQiIGZpbGw9ImJsYWNrIiBmaWxsLW9wYWNpdHk9IjAuMDIyIi8+PHBvbHlnb24gcG9pbnRzPSIyNiw3OCA1Miw3OCA1MiwxMDQiIGZpbGw9IndoaXRlIiBmaWxsLW9wYWNpdHk9IjAuMDIxIi8+PHBvbHlnb24gcG9pbnRzPSIyNiw3OCA1MiwxMDQgMjYsMTA0IiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjAzNiIvPjxwb2x5Z29uIHBvaW50cz0iNTIsNzggNzgsNzggNTIsMTA0IiBmaWxsPSJibGFjayIgZmlsbC1vcGFjaXR5PSIwLjAzNCIvPjxwb2x5Z29uIHBvaW50cz0iNzgsNzggNzgsMTA0IDUyLDEwNCIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC4wMzYiLz48cG9seWdvbiBwb2ludHM9Ijc4LDc4IDEwNCw3OCA3OCwxMDQiIGZpbGw9ImJsYWNrIiBmaWxsLW9wYWNpdHk9IjAuMDM2Ii8+PHBvbHlnb24gcG9pbnRzPSIxMDQsNzggMTA0LDEwNCA3OCwxMDQiIGZpbGw9ImJsYWNrIiBmaWxsLW9wYWNpdHk9IjAuMDM3Ii8+PHBvbHlnb24gcG9pbnRzPSIxMDQsNzggMTMwLDc4IDEzMCwxMDQiIGZpbGw9IndoaXRlIiBmaWxsLW9wYWNpdHk9IjAuMDMyIi8+PHBvbHlnb24gcG9pbnRzPSIxMDQsNzggMTMwLDEwNCAxMDQsMTA0IiBmaWxsPSJibGFjayIgZmlsbC1vcGFjaXR5PSIwLjA0NSIvPjxwb2x5Z29uIHBvaW50cz0iMTMwLDc4IDE1Niw3OCAxNTYsMTA0IiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjAzMiIvPjxwb2x5Z29uIHBvaW50cz0iMTMwLDc4IDE1NiwxMDQgMTMwLDEwNCIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC4wMTgiLz48cG9seWdvbiBwb2ludHM9IjE1Niw3OCAxODIsNzggMTU2LDEwNCIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC4wNDEiLz48cG9seWdvbiBwb2ludHM9IjE4Miw3OCAxODIsMTA0IDE1NiwxMDQiIGZpbGw9IndoaXRlIiBmaWxsLW9wYWNpdHk9IjAuMDQ0Ii8+PHBvbHlnb24gcG9pbnRzPSIxODIsNzggMjA4LDc4IDE4MiwxMDQiIGZpbGw9ImJsYWNrIiBmaWxsLW9wYWNpdHk9IjAuMDIyIi8+PHBvbHlnb24gcG9pbnRzPSIyMDgsNzggMjA4LDEwNCAxODIsMTA0IiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjAyIi8+PHBvbHlnb24gcG9pbnRzPSIwLDEwNCAyNiwxMDQgMjYsMTMwIiBmaWxsPSJibGFjayIgZmlsbC1vcGFjaXR5PSIwLjA0MiIvPjxwb2x5Z29uIHBvaW50cz0iMCwxMDQgMjYsMTMwIDAsMTMwIiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjA0OSIvPjxwb2x5Z29uIHBvaW50cz0iMjYsMTA0IDUyLDEwNCA1MiwxMzAiIGZpbGw9IndoaXRlIiBmaWxsLW9wYWNpdHk9IjAuMDMzIi8+PHBvbHlnb24gcG9pbnRzPSIyNiwxMDQgNTIsMTMwIDI2LDEzMCIgZmlsbD0iYmxhY2siIGZpbGwtb3BhY2l0eT0iMC4wMjciLz48cG9seWdvbiBwb2ludHM9IjUyLDEwNCA3OCwxMDQgNTIsMTMwIiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjAzNyIvPjxwb2x5Z29uIHBvaW50cz0iNzgsMTA0IDc4LDEzMCA1MiwxMzAiIGZpbGw9ImJsYWNrIiBmaWxsLW9wYWNpdHk9IjAuMDQzIi8+PHBvbHlnb24gcG9pbnRzPSI3OCwxMDQgMTA0LDEwNCAxMDQsMTMwIiBmaWxsPSJibGFjayIgZmlsbC1vcGFjaXR5PSIwLjAyMiIvPjxwb2x5Z29uIHBvaW50cz0iNzgsMTA0IDEwNCwxMzAgNzgsMTMwIiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjAyNyIvPjxwb2x5Z29uIHBvaW50cz0iMTA0LDEwNCAxMzAsMTA0IDEwNCwxMzAiIGZpbGw9ImJsYWNrIiBmaWxsLW9wYWNpdHk9IjAuMDQzIi8+PHBvbHlnb24gcG9pbnRzPSIxMzAsMTA0IDEzMCwxMzAgMTA0LDEzMCIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC4wMjQiLz48cG9seWdvbiBwb2ludHM9IjEzMCwxMDQgMTU2LDEwNCAxNTYsMTMwIiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjAzMSIvPjxwb2x5Z29uIHBvaW50cz0iMTMwLDEwNCAxNTYsMTMwIDEzMCwxMzAiIGZpbGw9IndoaXRlIiBmaWxsLW9wYWNpdHk9IjAuMDQ4Ii8+PHBvbHlnb24gcG9pbnRzPSIxNTYsMTA0IDE4MiwxMDQgMTU2LDEzMCIgZmlsbD0iYmxhY2siIGZpbGwtb3BhY2l0eT0iMC4wMTkiLz48cG9seWdvbiBwb2ludHM9IjE4MiwxMDQgMTgyLDEzMCAxNTYsMTMwIiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjAyMiIvPjxwb2x5Z29uIHBvaW50cz0iMTgyLDEwNCAyMDgsMTA0IDE4MiwxMzAiIGZpbGw9ImJsYWNrIiBmaWxsLW9wYWNpdHk9IjAuMDMyIi8+PHBvbHlnb24gcG9pbnRzPSIyMDgsMTA0IDIwOCwxMzAgMTgyLDEzMCIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC4wNDMiLz48cG9seWdvbiBwb2ludHM9IjAsMTMwIDI2LDEzMCAwLDE1NiIgZmlsbD0iYmxhY2siIGZpbGwtb3BhY2l0eT0iMC4wNDciLz48cG9seWdvbiBwb2ludHM9IjI2LDEzMCAyNiwxNTYgMCwxNTYiIGZpbGw9ImJsYWNrIiBmaWxsLW9wYWNpdHk9IjAuMDMyIi8+PHBvbHlnb24gcG9pbnRzPSIyNiwxMzAgNTIsMTMwIDI2LDE1NiIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC4wMTgiLz48cG9seWdvbiBwb2ludHM9IjUyLDEzMCA1MiwxNTYgMjYsMTU2IiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjAzMSIvPjxwb2x5Z29uIHBvaW50cz0iNTIsMTMwIDc4LDEzMCA3OCwxNTYiIGZpbGw9ImJsYWNrIiBmaWxsLW9wYWNpdHk9IjAuMDQiLz48cG9seWdvbiBwb2ludHM9IjUyLDEzMCA3OCwxNTYgNTIsMTU2IiBmaWxsPSJibGFjayIgZmlsbC1vcGFjaXR5PSIwLjA1Ii8+PHBvbHlnb24gcG9pbnRzPSI3OCwxMzAgMTA0LDEzMCA3OCwxNTYiIGZpbGw9IndoaXRlIiBmaWxsLW9wYWNpdHk9IjAuMDQzIi8+PHBvbHlnb24gcG9pbnRzPSIxMDQsMTMwIDEwNCwxNTYgNzgsMTU2IiBmaWxsPSJibGFjayIgZmlsbC1vcGFjaXR5PSIwLjAzNiIvPjxwb2x5Z29uIHBvaW50cz0iMTA0LDEzMCAxMzAsMTMwIDEzMCwxNTYiIGZpbGw9IndoaXRlIiBmaWxsLW9wYWNpdHk9IjAuMDM4Ii8+PHBvbHlnb24gcG9pbnRzPSIxMDQsMTMwIDEzMCwxNTYgMTA0LDE1NiIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC4wMiIvPjxwb2x5Z29uIHBvaW50cz0iMTMwLDEzMCAxNTYsMTMwIDE1NiwxNTYiIGZpbGw9ImJsYWNrIiBmaWxsLW9wYWNpdHk9IjAuMDE1Ii8+PHBvbHlnb24gcG9pbnRzPSIxMzAsMTMwIDE1NiwxNTYgMTMwLDE1NiIgZmlsbD0iYmxhY2siIGZpbGwtb3BhY2l0eT0iMC4wMzMiLz48cG9seWdvbiBwb2ludHM9IjE1NiwxMzAgMTgyLDEzMCAxODIsMTU2IiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjA1Ii8+PHBvbHlnb24gcG9pbnRzPSIxNTYsMTMwIDE4MiwxNTYgMTU2LDE1NiIgZmlsbD0iYmxhY2siIGZpbGwtb3BhY2l0eT0iMC4wNDQiLz48cG9seWdvbiBwb2ludHM9IjE4MiwxMzAgMjA4LDEzMCAxODIsMTU2IiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjAyMiIvPjxwb2x5Z29uIHBvaW50cz0iMjA4LDEzMCAyMDgsMTU2IDE4MiwxNTYiIGZpbGw9ImJsYWNrIiBmaWxsLW9wYWNpdHk9IjAuMDQyIi8+PHBvbHlnb24gcG9pbnRzPSIwLDE1NiAyNiwxNTYgMCwxODIiIGZpbGw9IndoaXRlIiBmaWxsLW9wYWNpdHk9IjAuMDQ0Ii8+PHBvbHlnb24gcG9pbnRzPSIyNiwxNTYgMjYsMTgyIDAsMTgyIiBmaWxsPSJibGFjayIgZmlsbC1vcGFjaXR5PSIwLjA0NyIvPjxwb2x5Z29uIHBvaW50cz0iMjYsMTU2IDUyLDE1NiAyNiwxODIiIGZpbGw9IndoaXRlIiBmaWxsLW9wYWNpdHk9IjAuMDM4Ii8+PHBvbHlnb24gcG9pbnRzPSI1MiwxNTYgNTIsMTgyIDI2LDE4MiIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC4wNDQiLz48cG9seWdvbiBwb2ludHM9IjUyLDE1NiA3OCwxNTYgNzgsMTgyIiBmaWxsPSJibGFjayIgZmlsbC1vcGFjaXR5PSIwLjAzNCIvPjxwb2x5Z29uIHBvaW50cz0iNTIsMTU2IDc4LDE4MiA1MiwxODIiIGZpbGw9ImJsYWNrIiBmaWxsLW9wYWNpdHk9IjAuMDQ2Ii8+PHBvbHlnb24gcG9pbnRzPSI3OCwxNTYgMTA0LDE1NiAxMDQsMTgyIiBmaWxsPSJibGFjayIgZmlsbC1vcGFjaXR5PSIwLjA0MiIvPjxwb2x5Z29uIHBvaW50cz0iNzgsMTU2IDEwNCwxODIgNzgsMTgyIiBmaWxsPSJibGFjayIgZmlsbC1vcGFjaXR5PSIwLjAyMSIvPjxwb2x5Z29uIHBvaW50cz0iMTA0LDE1NiAxMzAsMTU2IDEwNCwxODIiIGZpbGw9ImJsYWNrIiBmaWxsLW9wYWNpdHk9IjAuMDM0Ii8+PHBvbHlnb24gcG9pbnRzPSIxMzAsMTU2IDEzMCwxODIgMTA0LDE4MiIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC4wMzkiLz48cG9seWdvbiBwb2ludHM9IjEzMCwxNTYgMTU2LDE1NiAxNTYsMTgyIiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjA0MiIvPjxwb2x5Z29uIHBvaW50cz0iMTMwLDE1NiAxNTYsMTgyIDEzMCwxODIiIGZpbGw9ImJsYWNrIiBmaWxsLW9wYWNpdHk9IjAuMDQ2Ii8+PHBvbHlnb24gcG9pbnRzPSIxNTYsMTU2IDE4MiwxNTYgMTU2LDE4MiIgZmlsbD0iYmxhY2siIGZpbGwtb3BhY2l0eT0iMC4wMjUiLz48cG9seWdvbiBwb2ludHM9IjE4MiwxNTYgMTgyLDE4MiAxNTYsMTgyIiBmaWxsPSJibGFjayIgZmlsbC1vcGFjaXR5PSIwLjAzMyIvPjxwb2x5Z29uIHBvaW50cz0iMTgyLDE1NiAyMDgsMTU2IDIwOCwxODIiIGZpbGw9ImJsYWNrIiBmaWxsLW9wYWNpdHk9IjAuMDMxIi8+PHBvbHlnb24gcG9pbnRzPSIxODIsMTU2IDIwOCwxODIgMTgyLDE4MiIgZmlsbD0iYmxhY2siIGZpbGwtb3BhY2l0eT0iMC4wMzkiLz48cG9seWdvbiBwb2ludHM9IjAsMTgyIDI2LDE4MiAwLDIwOCIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC4wMzMiLz48cG9seWdvbiBwb2ludHM9IjI2LDE4MiAyNiwyMDggMCwyMDgiIGZpbGw9ImJsYWNrIiBmaWxsLW9wYWNpdHk9IjAuMDM5Ii8+PHBvbHlnb24gcG9pbnRzPSIyNiwxODIgNTIsMTgyIDUyLDIwOCIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC4wNDciLz48cG9seWdvbiBwb2ludHM9IjI2LDE4MiA1MiwyMDggMjYsMjA4IiBmaWxsPSJibGFjayIgZmlsbC1vcGFjaXR5PSIwLjA0NCIvPjxwb2x5Z29uIHBvaW50cz0iNTIsMTgyIDc4LDE4MiA1MiwyMDgiIGZpbGw9ImJsYWNrIiBmaWxsLW9wYWNpdHk9IjAuMDI5Ii8+PHBvbHlnb24gcG9pbnRzPSI3OCwxODIgNzgsMjA4IDUyLDIwOCIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC4wMTgiLz48cG9seWdvbiBwb2ludHM9Ijc4LDE4MiAxMDQsMTgyIDc4LDIwOCIgZmlsbD0iYmxhY2siIGZpbGwtb3BhY2l0eT0iMC4wMjIiLz48cG9seWdvbiBwb2ludHM9IjEwNCwxODIgMTA0LDIwOCA3OCwyMDgiIGZpbGw9IndoaXRlIiBmaWxsLW9wYWNpdHk9IjAuMDQyIi8+PHBvbHlnb24gcG9pbnRzPSIxMDQsMTgyIDEzMCwxODIgMTMwLDIwOCIgZmlsbD0iYmxhY2siIGZpbGwtb3BhY2l0eT0iMC4wNDgiLz48cG9seWdvbiBwb2ludHM9IjEwNCwxODIgMTMwLDIwOCAxMDQsMjA4IiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjAyIi8+PHBvbHlnb24gcG9pbnRzPSIxMzAsMTgyIDE1NiwxODIgMTU2LDIwOCIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC4wMjMiLz48cG9seWdvbiBwb2ludHM9IjEzMCwxODIgMTU2LDIwOCAxMzAsMjA4IiBmaWxsPSJibGFjayIgZmlsbC1vcGFjaXR5PSIwLjAyOSIvPjxwb2x5Z29uIHBvaW50cz0iMTU2LDE4MiAxODIsMTgyIDE1NiwyMDgiIGZpbGw9ImJsYWNrIiBmaWxsLW9wYWNpdHk9IjAuMDIxIi8+PHBvbHlnb24gcG9pbnRzPSIxODIsMTgyIDE4MiwyMDggMTU2LDIwOCIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC4wNSIvPjxwb2x5Z29uIHBvaW50cz0iMTgyLDE4MiAyMDgsMTgyIDE4MiwyMDgiIGZpbGw9IndoaXRlIiBmaWxsLW9wYWNpdHk9IjAuMDIyIi8+PHBvbHlnb24gcG9pbnRzPSIyMDgsMTgyIDIwOCwyMDggMTgyLDIwOCIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC4wMTgiLz48L3N2Zz4=");
+    background-size: 208px 208px;
+    color: var(--text);
+    padding: 24px;
+    min-height: 100vh;
+  }
+  .hero {
+    background-color: var(--accent-soft);
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDgiIGhlaWdodD0iMjA4IiB2aWV3Qm94PSIwIDAgMjA4IDIwOCI+PHBvbHlnb24gcG9pbnRzPSIwLDAgMjYsMCAwLDI2IiBmaWxsPSJibGFjayIgZmlsbC1vcGFjaXR5PSIwLjAyOSIvPjxwb2x5Z29uIHBvaW50cz0iMjYsMCAyNiwyNiAwLDI2IiBmaWxsPSJibGFjayIgZmlsbC1vcGFjaXR5PSIwLjAxOCIvPjxwb2x5Z29uIHBvaW50cz0iMjYsMCA1MiwwIDUyLDI2IiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjAzNSIvPjxwb2x5Z29uIHBvaW50cz0iMjYsMCA1MiwyNiAyNiwyNiIgZmlsbD0iYmxhY2siIGZpbGwtb3BhY2l0eT0iMC4wMTYiLz48cG9seWdvbiBwb2ludHM9IjUyLDAgNzgsMCA1MiwyNiIgZmlsbD0iYmxhY2siIGZpbGwtb3BhY2l0eT0iMC4wMjMiLz48cG9seWdvbiBwb2ludHM9Ijc4LDAgNzgsMjYgNTIsMjYiIGZpbGw9IndoaXRlIiBmaWxsLW9wYWNpdHk9IjAuMDE3Ii8+PHBvbHlnb24gcG9pbnRzPSI3OCwwIDEwNCwwIDEwNCwyNiIgZmlsbD0iYmxhY2siIGZpbGwtb3BhY2l0eT0iMC4wMzciLz48cG9seWdvbiBwb2ludHM9Ijc4LDAgMTA0LDI2IDc4LDI2IiBmaWxsPSJibGFjayIgZmlsbC1vcGFjaXR5PSIwLjAzNSIvPjxwb2x5Z29uIHBvaW50cz0iMTA0LDAgMTMwLDAgMTA0LDI2IiBmaWxsPSJibGFjayIgZmlsbC1vcGFjaXR5PSIwLjAxNyIvPjxwb2x5Z29uIHBvaW50cz0iMTMwLDAgMTMwLDI2IDEwNCwyNiIgZmlsbD0iYmxhY2siIGZpbGwtb3BhY2l0eT0iMC4wMjUiLz48cG9seWdvbiBwb2ludHM9IjEzMCwwIDE1NiwwIDEzMCwyNiIgZmlsbD0iYmxhY2siIGZpbGwtb3BhY2l0eT0iMC4wMzUiLz48cG9seWdvbiBwb2ludHM9IjE1NiwwIDE1NiwyNiAxMzAsMjYiIGZpbGw9ImJsYWNrIiBmaWxsLW9wYWNpdHk9IjAuMDE5Ii8+PHBvbHlnb24gcG9pbnRzPSIxNTYsMCAxODIsMCAxODIsMjYiIGZpbGw9ImJsYWNrIiBmaWxsLW9wYWNpdHk9IjAuMDI4Ii8+PHBvbHlnb24gcG9pbnRzPSIxNTYsMCAxODIsMjYgMTU2LDI2IiBmaWxsPSJibGFjayIgZmlsbC1vcGFjaXR5PSIwLjAzNSIvPjxwb2x5Z29uIHBvaW50cz0iMTgyLDAgMjA4LDAgMjA4LDI2IiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjAzOSIvPjxwb2x5Z29uIHBvaW50cz0iMTgyLDAgMjA4LDI2IDE4MiwyNiIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC4wNDIiLz48cG9seWdvbiBwb2ludHM9IjAsMjYgMjYsMjYgMCw1MiIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC4wMjgiLz48cG9seWdvbiBwb2ludHM9IjI2LDI2IDI2LDUyIDAsNTIiIGZpbGw9ImJsYWNrIiBmaWxsLW9wYWNpdHk9IjAuMDQzIi8+PHBvbHlnb24gcG9pbnRzPSIyNiwyNiA1MiwyNiA1Miw1MiIgZmlsbD0iYmxhY2siIGZpbGwtb3BhY2l0eT0iMC4wMTgiLz48cG9seWdvbiBwb2ludHM9IjI2LDI2IDUyLDUyIDI2LDUyIiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjAzMyIvPjxwb2x5Z29uIHBvaW50cz0iNTIsMjYgNzgsMjYgNzgsNTIiIGZpbGw9IndoaXRlIiBmaWxsLW9wYWNpdHk9IjAuMDI1Ii8+PHBvbHlnb24gcG9pbnRzPSI1MiwyNiA3OCw1MiA1Miw1MiIgZmlsbD0iYmxhY2siIGZpbGwtb3BhY2l0eT0iMC4wMTkiLz48cG9seWdvbiBwb2ludHM9Ijc4LDI2IDEwNCwyNiA3OCw1MiIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC4wMiIvPjxwb2x5Z29uIHBvaW50cz0iMTA0LDI2IDEwNCw1MiA3OCw1MiIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC4wMyIvPjxwb2x5Z29uIHBvaW50cz0iMTA0LDI2IDEzMCwyNiAxMzAsNTIiIGZpbGw9ImJsYWNrIiBmaWxsLW9wYWNpdHk9IjAuMDQyIi8+PHBvbHlnb24gcG9pbnRzPSIxMDQsMjYgMTMwLDUyIDEwNCw1MiIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC4wMjciLz48cG9seWdvbiBwb2ludHM9IjEzMCwyNiAxNTYsMjYgMTMwLDUyIiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjAzNSIvPjxwb2x5Z29uIHBvaW50cz0iMTU2LDI2IDE1Niw1MiAxMzAsNTIiIGZpbGw9IndoaXRlIiBmaWxsLW9wYWNpdHk9IjAuMDE3Ii8+PHBvbHlnb24gcG9pbnRzPSIxNTYsMjYgMTgyLDI2IDE1Niw1MiIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC4wMzIiLz48cG9seWdvbiBwb2ludHM9IjE4MiwyNiAxODIsNTIgMTU2LDUyIiBmaWxsPSJibGFjayIgZmlsbC1vcGFjaXR5PSIwLjAxNyIvPjxwb2x5Z29uIHBvaW50cz0iMTgyLDI2IDIwOCwyNiAyMDgsNTIiIGZpbGw9IndoaXRlIiBmaWxsLW9wYWNpdHk9IjAuMDI1Ii8+PHBvbHlnb24gcG9pbnRzPSIxODIsMjYgMjA4LDUyIDE4Miw1MiIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC4wNDYiLz48cG9seWdvbiBwb2ludHM9IjAsNTIgMjYsNTIgMCw3OCIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC4wMjciLz48cG9seWdvbiBwb2ludHM9IjI2LDUyIDI2LDc4IDAsNzgiIGZpbGw9ImJsYWNrIiBmaWxsLW9wYWNpdHk9IjAuMDMyIi8+PHBvbHlnb24gcG9pbnRzPSIyNiw1MiA1Miw1MiAyNiw3OCIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC4wMiIvPjxwb2x5Z29uIHBvaW50cz0iNTIsNTIgNTIsNzggMjYsNzgiIGZpbGw9ImJsYWNrIiBmaWxsLW9wYWNpdHk9IjAuMDI5Ii8+PHBvbHlnb24gcG9pbnRzPSI1Miw1MiA3OCw1MiA3OCw3OCIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC4wMTgiLz48cG9seWdvbiBwb2ludHM9IjUyLDUyIDc4LDc4IDUyLDc4IiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjAyOSIvPjxwb2x5Z29uIHBvaW50cz0iNzgsNTIgMTA0LDUyIDc4LDc4IiBmaWxsPSJibGFjayIgZmlsbC1vcGFjaXR5PSIwLjA0NCIvPjxwb2x5Z29uIHBvaW50cz0iMTA0LDUyIDEwNCw3OCA3OCw3OCIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC4wNCIvPjxwb2x5Z29uIHBvaW50cz0iMTA0LDUyIDEzMCw1MiAxMzAsNzgiIGZpbGw9IndoaXRlIiBmaWxsLW9wYWNpdHk9IjAuMDQ5Ii8+PHBvbHlnb24gcG9pbnRzPSIxMDQsNTIgMTMwLDc4IDEwNCw3OCIgZmlsbD0iYmxhY2siIGZpbGwtb3BhY2l0eT0iMC4wMTgiLz48cG9seWdvbiBwb2ludHM9IjEzMCw1MiAxNTYsNTIgMTMwLDc4IiBmaWxsPSJibGFjayIgZmlsbC1vcGFjaXR5PSIwLjAxNSIvPjxwb2x5Z29uIHBvaW50cz0iMTU2LDUyIDE1Niw3OCAxMzAsNzgiIGZpbGw9ImJsYWNrIiBmaWxsLW9wYWNpdHk9IjAuMDI0Ii8+PHBvbHlnb24gcG9pbnRzPSIxNTYsNTIgMTgyLDUyIDE1Niw3OCIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC4wMzQiLz48cG9seWdvbiBwb2ludHM9IjE4Miw1MiAxODIsNzggMTU2LDc4IiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjA0OCIvPjxwb2x5Z29uIHBvaW50cz0iMTgyLDUyIDIwOCw1MiAyMDgsNzgiIGZpbGw9ImJsYWNrIiBmaWxsLW9wYWNpdHk9IjAuMDMxIi8+PHBvbHlnb24gcG9pbnRzPSIxODIsNTIgMjA4LDc4IDE4Miw3OCIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC4wMjkiLz48cG9seWdvbiBwb2ludHM9IjAsNzggMjYsNzggMCwxMDQiIGZpbGw9IndoaXRlIiBmaWxsLW9wYWNpdHk9IjAuMDM3Ii8+PHBvbHlnb24gcG9pbnRzPSIyNiw3OCAyNiwxMDQgMCwxMDQiIGZpbGw9ImJsYWNrIiBmaWxsLW9wYWNpdHk9IjAuMDIyIi8+PHBvbHlnb24gcG9pbnRzPSIyNiw3OCA1Miw3OCA1MiwxMDQiIGZpbGw9IndoaXRlIiBmaWxsLW9wYWNpdHk9IjAuMDIxIi8+PHBvbHlnb24gcG9pbnRzPSIyNiw3OCA1MiwxMDQgMjYsMTA0IiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjAzNiIvPjxwb2x5Z29uIHBvaW50cz0iNTIsNzggNzgsNzggNTIsMTA0IiBmaWxsPSJibGFjayIgZmlsbC1vcGFjaXR5PSIwLjAzNCIvPjxwb2x5Z29uIHBvaW50cz0iNzgsNzggNzgsMTA0IDUyLDEwNCIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC4wMzYiLz48cG9seWdvbiBwb2ludHM9Ijc4LDc4IDEwNCw3OCA3OCwxMDQiIGZpbGw9ImJsYWNrIiBmaWxsLW9wYWNpdHk9IjAuMDM2Ii8+PHBvbHlnb24gcG9pbnRzPSIxMDQsNzggMTA0LDEwNCA3OCwxMDQiIGZpbGw9ImJsYWNrIiBmaWxsLW9wYWNpdHk9IjAuMDM3Ii8+PHBvbHlnb24gcG9pbnRzPSIxMDQsNzggMTMwLDc4IDEzMCwxMDQiIGZpbGw9IndoaXRlIiBmaWxsLW9wYWNpdHk9IjAuMDMyIi8+PHBvbHlnb24gcG9pbnRzPSIxMDQsNzggMTMwLDEwNCAxMDQsMTA0IiBmaWxsPSJibGFjayIgZmlsbC1vcGFjaXR5PSIwLjA0NSIvPjxwb2x5Z29uIHBvaW50cz0iMTMwLDc4IDE1Niw3OCAxNTYsMTA0IiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjAzMiIvPjxwb2x5Z29uIHBvaW50cz0iMTMwLDc4IDE1NiwxMDQgMTMwLDEwNCIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC4wMTgiLz48cG9seWdvbiBwb2ludHM9IjE1Niw3OCAxODIsNzggMTU2LDEwNCIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC4wNDEiLz48cG9seWdvbiBwb2ludHM9IjE4Miw3OCAxODIsMTA0IDE1NiwxMDQiIGZpbGw9IndoaXRlIiBmaWxsLW9wYWNpdHk9IjAuMDQ0Ii8+PHBvbHlnb24gcG9pbnRzPSIxODIsNzggMjA4LDc4IDE4MiwxMDQiIGZpbGw9ImJsYWNrIiBmaWxsLW9wYWNpdHk9IjAuMDIyIi8+PHBvbHlnb24gcG9pbnRzPSIyMDgsNzggMjA4LDEwNCAxODIsMTA0IiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjAyIi8+PHBvbHlnb24gcG9pbnRzPSIwLDEwNCAyNiwxMDQgMjYsMTMwIiBmaWxsPSJibGFjayIgZmlsbC1vcGFjaXR5PSIwLjA0MiIvPjxwb2x5Z29uIHBvaW50cz0iMCwxMDQgMjYsMTMwIDAsMTMwIiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjA0OSIvPjxwb2x5Z29uIHBvaW50cz0iMjYsMTA0IDUyLDEwNCA1MiwxMzAiIGZpbGw9IndoaXRlIiBmaWxsLW9wYWNpdHk9IjAuMDMzIi8+PHBvbHlnb24gcG9pbnRzPSIyNiwxMDQgNTIsMTMwIDI2LDEzMCIgZmlsbD0iYmxhY2siIGZpbGwtb3BhY2l0eT0iMC4wMjciLz48cG9seWdvbiBwb2ludHM9IjUyLDEwNCA3OCwxMDQgNTIsMTMwIiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjAzNyIvPjxwb2x5Z29uIHBvaW50cz0iNzgsMTA0IDc4LDEzMCA1MiwxMzAiIGZpbGw9ImJsYWNrIiBmaWxsLW9wYWNpdHk9IjAuMDQzIi8+PHBvbHlnb24gcG9pbnRzPSI3OCwxMDQgMTA0LDEwNCAxMDQsMTMwIiBmaWxsPSJibGFjayIgZmlsbC1vcGFjaXR5PSIwLjAyMiIvPjxwb2x5Z29uIHBvaW50cz0iNzgsMTA0IDEwNCwxMzAgNzgsMTMwIiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjAyNyIvPjxwb2x5Z29uIHBvaW50cz0iMTA0LDEwNCAxMzAsMTA0IDEwNCwxMzAiIGZpbGw9ImJsYWNrIiBmaWxsLW9wYWNpdHk9IjAuMDQzIi8+PHBvbHlnb24gcG9pbnRzPSIxMzAsMTA0IDEzMCwxMzAgMTA0LDEzMCIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC4wMjQiLz48cG9seWdvbiBwb2ludHM9IjEzMCwxMDQgMTU2LDEwNCAxNTYsMTMwIiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjAzMSIvPjxwb2x5Z29uIHBvaW50cz0iMTMwLDEwNCAxNTYsMTMwIDEzMCwxMzAiIGZpbGw9IndoaXRlIiBmaWxsLW9wYWNpdHk9IjAuMDQ4Ii8+PHBvbHlnb24gcG9pbnRzPSIxNTYsMTA0IDE4MiwxMDQgMTU2LDEzMCIgZmlsbD0iYmxhY2siIGZpbGwtb3BhY2l0eT0iMC4wMTkiLz48cG9seWdvbiBwb2ludHM9IjE4MiwxMDQgMTgyLDEzMCAxNTYsMTMwIiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjAyMiIvPjxwb2x5Z29uIHBvaW50cz0iMTgyLDEwNCAyMDgsMTA0IDE4MiwxMzAiIGZpbGw9ImJsYWNrIiBmaWxsLW9wYWNpdHk9IjAuMDMyIi8+PHBvbHlnb24gcG9pbnRzPSIyMDgsMTA0IDIwOCwxMzAgMTgyLDEzMCIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC4wNDMiLz48cG9seWdvbiBwb2ludHM9IjAsMTMwIDI2LDEzMCAwLDE1NiIgZmlsbD0iYmxhY2siIGZpbGwtb3BhY2l0eT0iMC4wNDciLz48cG9seWdvbiBwb2ludHM9IjI2LDEzMCAyNiwxNTYgMCwxNTYiIGZpbGw9ImJsYWNrIiBmaWxsLW9wYWNpdHk9IjAuMDMyIi8+PHBvbHlnb24gcG9pbnRzPSIyNiwxMzAgNTIsMTMwIDI2LDE1NiIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC4wMTgiLz48cG9seWdvbiBwb2ludHM9IjUyLDEzMCA1MiwxNTYgMjYsMTU2IiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjAzMSIvPjxwb2x5Z29uIHBvaW50cz0iNTIsMTMwIDc4LDEzMCA3OCwxNTYiIGZpbGw9ImJsYWNrIiBmaWxsLW9wYWNpdHk9IjAuMDQiLz48cG9seWdvbiBwb2ludHM9IjUyLDEzMCA3OCwxNTYgNTIsMTU2IiBmaWxsPSJibGFjayIgZmlsbC1vcGFjaXR5PSIwLjA1Ii8+PHBvbHlnb24gcG9pbnRzPSI3OCwxMzAgMTA0LDEzMCA3OCwxNTYiIGZpbGw9IndoaXRlIiBmaWxsLW9wYWNpdHk9IjAuMDQzIi8+PHBvbHlnb24gcG9pbnRzPSIxMDQsMTMwIDEwNCwxNTYgNzgsMTU2IiBmaWxsPSJibGFjayIgZmlsbC1vcGFjaXR5PSIwLjAzNiIvPjxwb2x5Z29uIHBvaW50cz0iMTA0LDEzMCAxMzAsMTMwIDEzMCwxNTYiIGZpbGw9IndoaXRlIiBmaWxsLW9wYWNpdHk9IjAuMDM4Ii8+PHBvbHlnb24gcG9pbnRzPSIxMDQsMTMwIDEzMCwxNTYgMTA0LDE1NiIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC4wMiIvPjxwb2x5Z29uIHBvaW50cz0iMTMwLDEzMCAxNTYsMTMwIDE1NiwxNTYiIGZpbGw9ImJsYWNrIiBmaWxsLW9wYWNpdHk9IjAuMDE1Ii8+PHBvbHlnb24gcG9pbnRzPSIxMzAsMTMwIDE1NiwxNTYgMTMwLDE1NiIgZmlsbD0iYmxhY2siIGZpbGwtb3BhY2l0eT0iMC4wMzMiLz48cG9seWdvbiBwb2ludHM9IjE1NiwxMzAgMTgyLDEzMCAxODIsMTU2IiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjA1Ii8+PHBvbHlnb24gcG9pbnRzPSIxNTYsMTMwIDE4MiwxNTYgMTU2LDE1NiIgZmlsbD0iYmxhY2siIGZpbGwtb3BhY2l0eT0iMC4wNDQiLz48cG9seWdvbiBwb2ludHM9IjE4MiwxMzAgMjA4LDEzMCAxODIsMTU2IiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjAyMiIvPjxwb2x5Z29uIHBvaW50cz0iMjA4LDEzMCAyMDgsMTU2IDE4MiwxNTYiIGZpbGw9ImJsYWNrIiBmaWxsLW9wYWNpdHk9IjAuMDQyIi8+PHBvbHlnb24gcG9pbnRzPSIwLDE1NiAyNiwxNTYgMCwxODIiIGZpbGw9IndoaXRlIiBmaWxsLW9wYWNpdHk9IjAuMDQ0Ii8+PHBvbHlnb24gcG9pbnRzPSIyNiwxNTYgMjYsMTgyIDAsMTgyIiBmaWxsPSJibGFjayIgZmlsbC1vcGFjaXR5PSIwLjA0NyIvPjxwb2x5Z29uIHBvaW50cz0iMjYsMTU2IDUyLDE1NiAyNiwxODIiIGZpbGw9IndoaXRlIiBmaWxsLW9wYWNpdHk9IjAuMDM4Ii8+PHBvbHlnb24gcG9pbnRzPSI1MiwxNTYgNTIsMTgyIDI2LDE4MiIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC4wNDQiLz48cG9seWdvbiBwb2ludHM9IjUyLDE1NiA3OCwxNTYgNzgsMTgyIiBmaWxsPSJibGFjayIgZmlsbC1vcGFjaXR5PSIwLjAzNCIvPjxwb2x5Z29uIHBvaW50cz0iNTIsMTU2IDc4LDE4MiA1MiwxODIiIGZpbGw9ImJsYWNrIiBmaWxsLW9wYWNpdHk9IjAuMDQ2Ii8+PHBvbHlnb24gcG9pbnRzPSI3OCwxNTYgMTA0LDE1NiAxMDQsMTgyIiBmaWxsPSJibGFjayIgZmlsbC1vcGFjaXR5PSIwLjA0MiIvPjxwb2x5Z29uIHBvaW50cz0iNzgsMTU2IDEwNCwxODIgNzgsMTgyIiBmaWxsPSJibGFjayIgZmlsbC1vcGFjaXR5PSIwLjAyMSIvPjxwb2x5Z29uIHBvaW50cz0iMTA0LDE1NiAxMzAsMTU2IDEwNCwxODIiIGZpbGw9ImJsYWNrIiBmaWxsLW9wYWNpdHk9IjAuMDM0Ii8+PHBvbHlnb24gcG9pbnRzPSIxMzAsMTU2IDEzMCwxODIgMTA0LDE4MiIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC4wMzkiLz48cG9seWdvbiBwb2ludHM9IjEzMCwxNTYgMTU2LDE1NiAxNTYsMTgyIiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjA0MiIvPjxwb2x5Z29uIHBvaW50cz0iMTMwLDE1NiAxNTYsMTgyIDEzMCwxODIiIGZpbGw9ImJsYWNrIiBmaWxsLW9wYWNpdHk9IjAuMDQ2Ii8+PHBvbHlnb24gcG9pbnRzPSIxNTYsMTU2IDE4MiwxNTYgMTU2LDE4MiIgZmlsbD0iYmxhY2siIGZpbGwtb3BhY2l0eT0iMC4wMjUiLz48cG9seWdvbiBwb2ludHM9IjE4MiwxNTYgMTgyLDE4MiAxNTYsMTgyIiBmaWxsPSJibGFjayIgZmlsbC1vcGFjaXR5PSIwLjAzMyIvPjxwb2x5Z29uIHBvaW50cz0iMTgyLDE1NiAyMDgsMTU2IDIwOCwxODIiIGZpbGw9ImJsYWNrIiBmaWxsLW9wYWNpdHk9IjAuMDMxIi8+PHBvbHlnb24gcG9pbnRzPSIxODIsMTU2IDIwOCwxODIgMTgyLDE4MiIgZmlsbD0iYmxhY2siIGZpbGwtb3BhY2l0eT0iMC4wMzkiLz48cG9seWdvbiBwb2ludHM9IjAsMTgyIDI2LDE4MiAwLDIwOCIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC4wMzMiLz48cG9seWdvbiBwb2ludHM9IjI2LDE4MiAyNiwyMDggMCwyMDgiIGZpbGw9ImJsYWNrIiBmaWxsLW9wYWNpdHk9IjAuMDM5Ii8+PHBvbHlnb24gcG9pbnRzPSIyNiwxODIgNTIsMTgyIDUyLDIwOCIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC4wNDciLz48cG9seWdvbiBwb2ludHM9IjI2LDE4MiA1MiwyMDggMjYsMjA4IiBmaWxsPSJibGFjayIgZmlsbC1vcGFjaXR5PSIwLjA0NCIvPjxwb2x5Z29uIHBvaW50cz0iNTIsMTgyIDc4LDE4MiA1MiwyMDgiIGZpbGw9ImJsYWNrIiBmaWxsLW9wYWNpdHk9IjAuMDI5Ii8+PHBvbHlnb24gcG9pbnRzPSI3OCwxODIgNzgsMjA4IDUyLDIwOCIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC4wMTgiLz48cG9seWdvbiBwb2ludHM9Ijc4LDE4MiAxMDQsMTgyIDc4LDIwOCIgZmlsbD0iYmxhY2siIGZpbGwtb3BhY2l0eT0iMC4wMjIiLz48cG9seWdvbiBwb2ludHM9IjEwNCwxODIgMTA0LDIwOCA3OCwyMDgiIGZpbGw9IndoaXRlIiBmaWxsLW9wYWNpdHk9IjAuMDQyIi8+PHBvbHlnb24gcG9pbnRzPSIxMDQsMTgyIDEzMCwxODIgMTMwLDIwOCIgZmlsbD0iYmxhY2siIGZpbGwtb3BhY2l0eT0iMC4wNDgiLz48cG9seWdvbiBwb2ludHM9IjEwNCwxODIgMTMwLDIwOCAxMDQsMjA4IiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjAyIi8+PHBvbHlnb24gcG9pbnRzPSIxMzAsMTgyIDE1NiwxODIgMTU2LDIwOCIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC4wMjMiLz48cG9seWdvbiBwb2ludHM9IjEzMCwxODIgMTU2LDIwOCAxMzAsMjA4IiBmaWxsPSJibGFjayIgZmlsbC1vcGFjaXR5PSIwLjAyOSIvPjxwb2x5Z29uIHBvaW50cz0iMTU2LDE4MiAxODIsMTgyIDE1NiwyMDgiIGZpbGw9ImJsYWNrIiBmaWxsLW9wYWNpdHk9IjAuMDIxIi8+PHBvbHlnb24gcG9pbnRzPSIxODIsMTgyIDE4MiwyMDggMTU2LDIwOCIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC4wNSIvPjxwb2x5Z29uIHBvaW50cz0iMTgyLDE4MiAyMDgsMTgyIDE4MiwyMDgiIGZpbGw9IndoaXRlIiBmaWxsLW9wYWNpdHk9IjAuMDIyIi8+PHBvbHlnb24gcG9pbnRzPSIyMDgsMTgyIDIwOCwyMDggMTgyLDIwOCIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC4wMTgiLz48L3N2Zz4=");
+    background-size: 208px 208px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin-bottom: 20px;
+  }
+  h1 {
+    font-size: 20px;
+    margin: 0 0 4px;
+  }
+  .lead {
+    color: var(--sub);
+    font-size: 13px;
+    margin: 0;
+  }
+  .hero-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .guide-link {
+    flex: 0 0 auto;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 9px 14px;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--accent);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .guide-link:hover { border-color: var(--accent); background: var(--accent-soft); }
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: start;
+  }
+  @media (max-width: 860px) {
+    .layout { grid-template-columns: 1fr; }
+  }
+  .panel {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+  }
+  .tabs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+  }
+  .tab {
+    flex: 1 1 auto;
+    padding: 10px 12px;
+    text-align: center;
+    border: 1px solid var(--border);
+    background: var(--panel);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--sub);
+    transition: all 0.15s;
+  }
+  .tab:hover { border-color: var(--accent); color: var(--accent); }
+  .tab.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+  }
+  .toolbar {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+  .field {
+    margin-bottom: 16px;
+  }
+  .field label {
+    display: block;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--sub);
+    margin-bottom: 6px;
+  }
+  .optional-tag {
+    font-weight: 400;
+    color: #9ca3af;
+    margin-left: 4px;
+  }
+  input[type="text"], textarea, select {
+    width: 100%;
+    padding: 9px 10px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 13.5px;
+    font-family: inherit;
+    background: #fff;
+    color: var(--text);
+  }
+  input[type="text"]:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-soft);
+  }
+  textarea { resize: vertical; min-height: 60px; }
+  textarea.textarea-paste { min-height: 100px; }
+  textarea.textarea-template { min-height: 260px; font-size: 12.5px; font-family: ui-monospace, Menlo, monospace; }
+  .channel-row { display: flex; gap: 6px; }
+  .channel-row select { flex: 1; }
+  .mode-switch {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+  .mode-btn {
+    padding: 6px 12px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: #fff;
+    font-size: 12px;
+    cursor: pointer;
+    color: var(--sub);
+  }
+  .mode-btn.active {
+    background: var(--accent-soft);
+    border-color: var(--accent);
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .dyn-row {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 6px;
+    align-items: center;
+  }
+  .dyn-row input { flex: 1; }
+  .dyn-row input.subtitle { flex: 0 0 150px; }
+  .row-remove {
+    flex: 0 0 auto;
+    border: none;
+    background: #fee2e2;
+    color: #dc2626;
+    border-radius: 6px;
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1;
+  }
+  .add-row-btn {
+    background: none;
+    border: 1px dashed var(--border);
+    color: var(--accent);
+    border-radius: 8px;
+    padding: 6px 10px;
+    font-size: 12.5px;
+    cursor: pointer;
+    width: 100%;
+  }
+  .add-row-btn:hover { border-color: var(--accent); background: var(--accent-soft); }
+  .manage-link {
+    border: 1px solid var(--border);
+    background: #fff;
+    border-radius: 8px;
+    padding: 9px 12px;
+    font-size: 12.5px;
+    cursor: pointer;
+    color: var(--sub);
+    white-space: nowrap;
+  }
+  .manage-link:hover { border-color: var(--accent); color: var(--accent); }
+  .section-title {
+    font-size: 13px;
+    font-weight: 700;
+    margin: 22px 0 10px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+  }
+  .section-title:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+  .section-title-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .field-row + .field-row {
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+    margin-top: 4px;
+  }
+  .small-toggle.active {
+    background: var(--accent-soft);
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .item-card {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px;
+    margin-bottom: 10px;
+  }
+  .item-card-header {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  .item-card-header input { flex: 1; font-weight: 600; }
+  .item-link-field { margin-top: 8px; }
+  .item-link-field label {
+    display: block;
+    font-size: 11.5px;
+    color: var(--sub);
+    margin-bottom: 4px;
+  }
+  .preview-box {
+    white-space: pre-wrap;
+    width: 100%;
+    min-height: 480px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px;
+    font-size: 13px;
+    line-height: 1.7;
+    background: #fafbfc;
+    font-family: inherit;
+    color: var(--text);
+  }
+  .copy-btn {
+    margin-top: 12px;
+    width: 100%;
+    padding: 12px;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .copy-btn:hover { background: var(--accent-hover); }
+  .copy-btn.copied { background: var(--success); }
+  .preview-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .preview-title h2 { font-size: 14px; margin: 0; }
+  .copy-feedback {
+    font-size: 12px;
+    color: var(--success);
+    font-weight: 600;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .copy-feedback.show { opacity: 1; }
+
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    padding: 20px;
+  }
+  .modal-overlay.show { display: flex; }
+  .modal-box {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    width: 100%;
+    max-width: 560px;
+    max-height: 85vh;
+    overflow-y: auto;
+  }
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+  }
+  .modal-header h3 { font-size: 15px; margin: 0; }
+  .modal-close {
+    border: none;
+    background: none;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    color: var(--sub);
+  }
+  .modal-hint {
+    font-size: 12px;
+    color: var(--sub);
+    margin: -6px 0 12px;
+  }
+  .modal-footer {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+    margin-top: 14px;
+  }
+  .btn {
+    padding: 9px 16px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: #fff;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--sub);
+  }
+  .btn:hover { border-color: var(--accent); color: var(--accent); }
+  .btn.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .btn.primary:hover { background: var(--accent-hover); color: #fff; }
+  .pattern-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 10px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 6px;
+    font-size: 13px;
+    gap: 8px;
+  }
+  .pattern-row-label { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .pattern-row-actions { display: flex; gap: 4px; flex: 0 0 auto; }
+  .pattern-row-actions button {
+    border: 1px solid var(--border);
+    background: #fff;
+    border-radius: 6px;
+    width: 28px;
+    height: 26px;
+    cursor: pointer;
+    font-size: 12px;
+    color: var(--sub);
+  }
+  .pattern-row-actions button:hover { border-color: var(--accent); color: var(--accent); }
+  .pattern-row-actions button.danger:hover { border-color: #dc2626; color: #dc2626; }
+  .pattern-row-actions button:disabled { opacity: 0.35; cursor: not-allowed; }
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 8px;
+  }
+  .legend-chip {
+    font-size: 11px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    border-radius: 999px;
+    padding: 4px 9px;
+    cursor: pointer;
+    border: none;
+  }
+  .legend-chip:hover { background: var(--accent); color: #fff; }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="hero">
+    <div class="hero-top">
+      <div>
+        <h1>サクッと提出文</h1>
+        <p class="lead">パターンを選んでリンクを入力すると、右側に提出用の文面が自動生成されます。</p>
+      </div>
+      <a class="guide-link" href="https://claude.ai/code/artifact/b2ff82fb-89db-4a90-8c11-59d6d9950757" target="_blank" rel="noopener">📋 使い方ガイド</a>
+    </div>
+  </div>
+
+  <div class="layout">
+    <div class="panel">
+      <div class="tabs" id="tabs"></div>
+      <div class="toolbar">
+        <button type="button" class="manage-link" id="managePatternsBtn">⚙ 定型文を管理</button>
+        <button type="button" class="manage-link" id="clearAllBtn">🗑 全項目をクリア</button>
+      </div>
+
+      <div class="field field-row" id="field-channel">
+        <label>チャンネル名<span class="optional-tag">(任意・選択すると【チャンネル名】が文面に表示)</span></label>
+        <div class="channel-row">
+          <select id="channel"></select>
+          <button type="button" class="manage-link" id="manageChannelsBtn">管理</button>
+        </div>
+      </div>
+
+      <div class="field field-row" id="field-title">
+        <div class="section-title-row">
+          <label style="margin:0;">動画タイトル</label>
+          <button type="button" class="manage-link" id="multiModeToggle">＋ 複数登録する</button>
+        </div>
+        <input type="text" id="title" placeholder="例）〇〇について解説してみた">
+      </div>
+
+      <div class="field-row" id="section-frameio">
+        <div class="section-title">Frameioリンク</div>
+        <input type="text" id="frameioSingle" placeholder="URLを貼り付け">
+      </div>
+
+      <div class="field-row" id="section-checkUrl">
+        <div class="section-title">確認用URL</div>
+        <input type="text" id="checkUrlSingle" placeholder="URLを貼り付け">
+      </div>
+
+      <div class="field-row" id="multiItems" style="display:none;">
+        <div class="section-title">複数登録した提出物<span class="optional-tag">(タイトルごとにリンクを入力)</span></div>
+        <div id="itemRows"></div>
+        <button type="button" class="add-row-btn" id="addItemRow">＋ 行を追加</button>
+      </div>
+
+      <div class="field-row" id="section-dataUrl">
+        <div class="section-title-row">
+          <div class="section-title" style="margin:0;padding:0;border:0;">動画データ</div>
+          <button type="button" class="manage-link small-toggle" id="dataUrlIndividualToggle" style="display:none;">複数登録にする</button>
+        </div>
+        <input type="text" id="dataUrlSingle" placeholder="URLを貼り付け">
+      </div>
+
+      <div class="field-row" id="section-promane">
+        <div class="section-title-row">
+          <div class="section-title" style="margin:0;padding:0;border:0;">プロマネ</div>
+          <button type="button" class="manage-link small-toggle" id="promaneIndividualToggle" style="display:none;">複数登録にする</button>
+        </div>
+        <input type="text" id="promaneSingle" placeholder="URLを貼り付け">
+      </div>
+
+      <div class="field-row" id="section-revisions">
+        <div class="section-title">修正点<span class="optional-tag">(空欄なら文面に表示されません)</span></div>
+        <textarea id="revisionsText" class="textarea-paste" placeholder="修正した内容をそのまま貼り付け"></textarea>
+      </div>
+
+      <div class="field-row" id="section-timestamps">
+        <div class="section-title">見出しタイムスタンプ<span class="optional-tag">(空欄なら文面に表示されません)</span></div>
+        <div class="mode-switch" id="timestampSummaryToggle">
+          <div class="mode-btn" data-mode="summary">概要欄に記載</div>
+        </div>
+        <textarea id="timestampsText" class="textarea-paste" placeholder="00:00 見出し1&#10;03:20 見出し2&#10;…の形でそのまま貼り付け"></textarea>
+      </div>
+
+      <div class="field-row" id="section-sources">
+        <div class="section-title">ソース元<span class="optional-tag">(空欄なら文面に表示されません)</span></div>
+        <textarea id="sourcesText" class="textarea-paste" placeholder="00:00 見出し：URL の形でそのまま貼り付け"></textarea>
+      </div>
+
+      <div class="section-title">不明点＆共有事項<span class="optional-tag">(空欄なら文面に表示されません)</span></div>
+      <div class="field" id="field-notes" style="margin-bottom:0;">
+        <textarea id="notes" placeholder="例）BGMの候補が2つあるのでご確認ください"></textarea>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="preview-title">
+        <h2>プレビュー</h2>
+        <span class="copy-feedback" id="copyFeedback">コピーしました！</span>
+      </div>
+      <div class="preview-box" id="preview"></div>
+      <button type="button" class="copy-btn" id="copyBtn">この文面をコピー</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="channelModalOverlay">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h3>チャンネルを管理</h3>
+      <button type="button" class="modal-close" id="channelModalClose">×</button>
+    </div>
+    <p class="modal-hint">この端末・ブラウザに保存されます（他のメンバーは各自で登録してください）。</p>
+    <div id="chanList"></div>
+    <div class="dyn-row">
+      <input type="text" id="chanNewInput" placeholder="新しいチャンネル名">
+      <button type="button" class="btn primary" id="chanAddBtn" style="flex:0 0 auto;">追加</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="patternModalOverlay">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h3>定型文を管理</h3>
+      <button type="button" class="modal-close" id="patternModalClose">×</button>
+    </div>
+
+    <div id="patListView">
+      <div id="patList"></div>
+      <button type="button" class="add-row-btn" id="patAddBtn">＋ 新しい定型文を追加</button>
+      <button type="button" class="manage-link" id="patResetBtn" style="width:100%;margin-top:8px;">初期状態に戻す（追加・編集した定型文は消えます）</button>
+    </div>
+
+    <div id="patEditView" style="display:none;">
+      <div class="field">
+        <label>タブ名</label>
+        <input type="text" id="patLabelInput" placeholder="例）チーム初稿">
+      </div>
+      <div class="field" style="margin-bottom:0;">
+        <label>テンプレート本文</label>
+        <div class="legend" id="patLegend"></div>
+        <p class="modal-hint">タグをクリックするとカーソル位置に挿入されます。{channel}{timestampsBlock}{sourcesBlock}{notesBlock} は入力が空の場合、行ごと自動的に消えます。</p>
+        <textarea id="patTemplateInput" class="textarea-template"></textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn" id="patCancelBtn">キャンセル</button>
+        <button type="button" class="btn primary" id="patSaveBtn">保存</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const STORAGE_PATTERNS = 'teishakubun_patterns_v1';
+const STORAGE_CHANNELS = 'teishakubun_channels_v1';
+
+const PLACEHOLDERS = [
+  { key: 'channel', label: '【チャンネル名】' },
+  { key: 'titleLine', label: '動画タイトル（複数可）' },
+  { key: 'frameioBlock', label: 'Frameioリンク（複数可）' },
+  { key: 'checkUrlBlock', label: '確認用URL（複数可）' },
+  { key: 'dataUrlBlock', label: '動画データURL（複数可）' },
+  { key: 'promaneBlock', label: 'プロマネURL（複数可）' },
+  { key: 'revisionsBlock', label: '修正点' },
+  { key: 'timestampsBlock', label: '見出しタイムスタンプ' },
+  { key: 'sourcesBlock', label: 'ソース元' },
+  { key: 'notesBlock', label: '不明点＆共有事項' },
+];
+
+const DEFAULT_PATTERNS = [
+  {
+    id: 'team_first',
+    label: 'チーム初稿',
+    template: `{channel}
+【動画提出のご連絡】
+お世話になっております！
+
+{titleLine}の
+初稿が完成しましたので提出させていただきます。
+
+内容のご確認、お願いいたします！
+{frameioBlock}
+
+{promaneBlock}
+
+{notesBlock}`,
+  },
+  {
+    id: 'team_fix',
+    label: 'チーム修正',
+    template: `{channel}
+【動画提出のご連絡】
+お世話になっております！
+
+{titleLine}の
+修正稿が完成しましたので提出させていただきます。
+
+内容のご確認、お願いいたします！
+{frameioBlock}
+
+{promaneBlock}
+
+{notesBlock}`,
+  },
+  {
+    id: 'client_first',
+    label: 'クライアント初稿',
+    template: `{channel}
+【動画提出のご連絡】
+お世話になっております！
+
+{titleLine}の
+初稿が完成しましたので、提出させていただきます。
+
+内容のご確認、お願いいたします！
+{checkUrlBlock}
+
+{dataUrlBlock}
+
+{promaneBlock}
+
+{timestampsBlock}
+
+{sourcesBlock}
+
+{notesBlock}
+
+気になる点がございましたら、
+修正させていただきますので、お気軽にお伝えください！
+
+よろしくお願いいたします！`,
+  },
+  {
+    id: 'client_fix',
+    label: 'クライアント修正',
+    template: `{channel}
+【動画提出のご連絡】
+お世話になっております！
+
+{titleLine}の
+修正稿が完成しましたので、提出させていただきます。
+
+内容のご確認、お願いいたします！
+{checkUrlBlock}
+
+{dataUrlBlock}
+
+{promaneBlock}
+
+{revisionsBlock}
+
+{timestampsBlock}
+
+{sourcesBlock}
+
+{notesBlock}
+
+気になる点がございましたら、
+修正させていただきますので、お気軽にお伝えください！
+
+よろしくお願いいたします！`,
+  },
+];
+
+function loadPatterns() {
+  try {
+    const raw = localStorage.getItem(STORAGE_PATTERNS);
+    if (raw) {
+      const arr = JSON.parse(raw);
+      if (Array.isArray(arr) && arr.length) return arr;
+    }
+  } catch (e) {}
+  return DEFAULT_PATTERNS.map(p => ({ ...p }));
+}
+function savePatterns() {
+  localStorage.setItem(STORAGE_PATTERNS, JSON.stringify(state.patterns));
+}
+function loadChannels() {
+  try {
+    const raw = localStorage.getItem(STORAGE_CHANNELS);
+    if (raw) {
+      const arr = JSON.parse(raw);
+      if (Array.isArray(arr)) return arr;
+    }
+  } catch (e) {}
+  return [];
+}
+function saveChannels() {
+  localStorage.setItem(STORAGE_CHANNELS, JSON.stringify(state.channels));
+}
+
+const state = {
+  patterns: loadPatterns(),
+  channels: loadChannels(),
+  patternId: null,
+  channel: '',
+  title: '',
+  frameioSingle: '',
+  checkUrlSingle: '',
+  dataUrlSingle: '',
+  promaneSingle: '',
+  multiMode: false,
+  items: [{ title: '', frameio: '', checkUrl: '', dataUrl: '', promane: '' }],
+  promaneIndividual: false,
+  dataUrlIndividual: false,
+  timestampSummary: false,
+  revisionsText: '',
+  timestampsText: '',
+  sourcesText: '',
+  notes: '',
+  modal: { patternEditing: null },
+};
+state.patternId = state.patterns[0].id;
+
+const $ = (id) => document.getElementById(id);
+
+function escapeAttr(str) {
+  return (str || '').replace(/&/g, '&amp;').replace(/"/g, '&quot;');
+}
+
+function currentPattern() {
+  return state.patterns.find(p => p.id === state.patternId) || state.patterns[0];
+}
+function usesPlaceholder(pattern, key) {
+  return pattern.template.includes(`{${key}}`);
+}
+
+function renderTabs() {
+  const el = $('tabs');
+  el.innerHTML = '';
+  state.patterns.forEach(p => {
+    const tab = document.createElement('div');
+    tab.className = 'tab' + (state.patternId === p.id ? ' active' : '');
+    tab.textContent = p.label;
+    tab.addEventListener('click', () => {
+      state.patternId = p.id;
+      renderTabs();
+      renderFieldVisibility();
+      updatePreview();
+    });
+    el.appendChild(tab);
+  });
+}
+
+function currentLinkKinds(p) {
+  return {
+    frameio: usesPlaceholder(p, 'frameioBlock'),
+    checkUrl: usesPlaceholder(p, 'checkUrlBlock'),
+    dataUrl: usesPlaceholder(p, 'dataUrlBlock'),
+    promane: usesPlaceholder(p, 'promaneBlock'),
+  };
+}
+
+function renderFieldVisibility() {
+  const p = currentPattern();
+  $('field-channel').style.display = usesPlaceholder(p, 'channel') ? '' : 'none';
+  $('field-title').style.display = usesPlaceholder(p, 'titleLine') ? '' : 'none';
+  $('section-revisions').style.display = usesPlaceholder(p, 'revisionsBlock') ? '' : 'none';
+  $('section-timestamps').style.display = usesPlaceholder(p, 'timestampsBlock') ? '' : 'none';
+  $('section-sources').style.display = usesPlaceholder(p, 'sourcesBlock') ? '' : 'none';
+  $('field-notes').style.display = usesPlaceholder(p, 'notesBlock') ? '' : 'none';
+  renderItemsUI();
+}
+
+function renderItemsUI() {
+  const p = currentPattern();
+  const kinds = currentLinkKinds(p);
+
+  $('section-frameio').style.display = (kinds.frameio && !state.multiMode) ? '' : 'none';
+  $('section-checkUrl').style.display = (kinds.checkUrl && !state.multiMode) ? '' : 'none';
+  $('section-dataUrl').style.display = kinds.dataUrl ? '' : 'none';
+  $('section-promane').style.display = kinds.promane ? '' : 'none';
+
+  $('multiModeToggle').textContent = state.multiMode ? '通常に戻す' : '＋ 複数登録する';
+  $('multiModeToggle').classList.toggle('active', state.multiMode);
+
+  $('title').style.display = state.multiMode ? 'none' : '';
+
+  $('dataUrlIndividualToggle').style.display = state.multiMode ? '' : 'none';
+  $('promaneIndividualToggle').style.display = state.multiMode ? '' : 'none';
+  $('dataUrlIndividualToggle').classList.toggle('active', state.dataUrlIndividual);
+  $('promaneIndividualToggle').classList.toggle('active', state.promaneIndividual);
+  $('dataUrlIndividualToggle').textContent = state.dataUrlIndividual ? '通常に戻す' : '複数登録にする';
+  $('promaneIndividualToggle').textContent = state.promaneIndividual ? '通常に戻す' : '複数登録にする';
+
+  $('dataUrlSingle').style.display = (state.multiMode && state.dataUrlIndividual) ? 'none' : '';
+  $('promaneSingle').style.display = (state.multiMode && state.promaneIndividual) ? 'none' : '';
+
+  $('multiItems').style.display = state.multiMode ? '' : 'none';
+
+  if (state.multiMode) {
+    renderItemRows(kinds);
+  }
+}
+
+function renderItemRows(kinds) {
+  const el = $('itemRows');
+  el.innerHTML = '';
+  state.items.forEach((item, i) => {
+    const card = document.createElement('div');
+    card.className = 'item-card';
+
+    const header = document.createElement('div');
+    header.className = 'item-card-header';
+    const titleInput = document.createElement('input');
+    titleInput.type = 'text';
+    titleInput.placeholder = 'タイトル（例）cr101';
+    titleInput.value = item.title;
+    titleInput.addEventListener('input', e => { item.title = e.target.value; updatePreview(); });
+    const removeBtn = document.createElement('button');
+    removeBtn.type = 'button';
+    removeBtn.className = 'row-remove';
+    removeBtn.textContent = '×';
+    removeBtn.addEventListener('click', () => {
+      state.items.splice(i, 1);
+      if (state.items.length === 0) state.items.push({ title: '', frameio: '', checkUrl: '', dataUrl: '', promane: '' });
+      renderItemRows(kinds);
+      updatePreview();
+    });
+    header.append(titleInput, removeBtn);
+    card.appendChild(header);
+
+    const addLinkField = (key, label, placeholder) => {
+      const wrap = document.createElement('div');
+      wrap.className = 'item-link-field';
+      const lbl = document.createElement('label');
+      lbl.textContent = label;
+      const input = document.createElement('input');
+      input.type = 'text';
+      input.placeholder = placeholder;
+      input.value = item[key];
+      input.addEventListener('input', e => { item[key] = e.target.value; updatePreview(); });
+      wrap.append(lbl, input);
+      card.appendChild(wrap);
+    };
+
+    if (kinds.frameio) addLinkField('frameio', 'Frameioリンク', 'URLを貼り付け');
+    if (kinds.checkUrl) addLinkField('checkUrl', '確認用URL', 'URLを貼り付け');
+    if (kinds.dataUrl && state.dataUrlIndividual) addLinkField('dataUrl', '動画データ', 'URLを貼り付け');
+    if (kinds.promane && state.promaneIndividual) addLinkField('promane', 'プロマネ', 'URLを貼り付け');
+
+    el.appendChild(card);
+  });
+}
+
+function renderChannelOptions() {
+  const sel = $('channel');
+  const cur = state.channel;
+  sel.innerHTML = '';
+  const optEmpty = document.createElement('option');
+  optEmpty.value = '';
+  optEmpty.textContent = '未選択';
+  sel.appendChild(optEmpty);
+  state.channels.forEach(name => {
+    const opt = document.createElement('option');
+    opt.value = name;
+    opt.textContent = name;
+    sel.appendChild(opt);
+  });
+  sel.value = state.channels.includes(cur) ? cur : '';
+  state.channel = sel.value;
+}
+
+function renderTimestampArea() {
+  $('timestampsText').style.display = state.timestampSummary ? 'none' : '';
+}
+
+function buildTitleLine() {
+  if (!state.multiMode) {
+    const t = state.title.trim();
+    return t ? `「${t}」` : '「動画タイトル」';
+  }
+  const titles = state.items.map(it => it.title.trim()).filter(Boolean);
+  if (titles.length === 0) return '「動画タイトル」';
+  return titles.map(t => `「${t}」`).join('・');
+}
+
+function buildPrimaryBlock(primaryKey, primaryHeading, primarySingle) {
+  if (!state.multiMode) {
+    const url = primarySingle.trim() || '※リンク貼る';
+    return `${primaryHeading}\n${url}`;
+  }
+  const includeDataUrl = primaryKey === 'checkUrl' && state.dataUrlIndividual;
+  const includePromane = state.promaneIndividual;
+  const rows = state.items.filter(it =>
+    it.title.trim() ||
+    (it[primaryKey] || '').trim() ||
+    (includeDataUrl && (it.dataUrl || '').trim()) ||
+    (includePromane && (it.promane || '').trim())
+  );
+  const list = rows.length ? rows : [{ title: '' }];
+  return list
+    .map(it => {
+      const lines = [];
+      if (it.title.trim()) lines.push(`【${it.title.trim()}】`);
+      lines.push(primaryHeading, (it[primaryKey] || '').trim() || '※リンク貼る');
+      if (includeDataUrl) {
+        lines.push('▼動画データ', (it.dataUrl || '').trim() || '※リンク貼る');
+      }
+      if (includePromane) {
+        lines.push('▼プロマネ', (it.promane || '').trim() || '※リンク貼る');
+      }
+      return lines.join('\n');
+    })
+    .join('\n\n');
+}
+
+function buildStandaloneBlock(heading, individual, singleValue, MARK) {
+  if (state.multiMode && individual) {
+    return MARK;
+  }
+  const effectiveHeading = state.multiMode ? `${heading}（まとめ）` : heading;
+  const url = singleValue.trim() || '※リンク貼る';
+  return `${effectiveHeading}\n${url}`;
+}
+
+function fillTemplate(pattern) {
+  const MARK = ' RM ';
+
+  const channel = state.channel.trim() ? `【${state.channel.trim()}】` : MARK;
+  const titleLine = buildTitleLine();
+  const frameioBlock = buildPrimaryBlock('frameio', '▼Frameioリンク', state.frameioSingle);
+  const checkUrlBlock = buildPrimaryBlock('checkUrl', '▼確認用URL', state.checkUrlSingle);
+  const dataUrlBlock = buildStandaloneBlock('▼動画データ', state.dataUrlIndividual, state.dataUrlSingle, MARK);
+  const promaneBlock = buildStandaloneBlock('▼プロマネ', state.promaneIndividual, state.promaneSingle, MARK);
+
+  let timestampsBlock = MARK;
+  if (state.timestampSummary) {
+    timestampsBlock = `▼見出しタイムスタンプ\n概要欄に記載`;
+  } else if (state.timestampsText.trim()) {
+    timestampsBlock = `▼見出しタイムスタンプ\n${state.timestampsText.trim()}`;
+  }
+
+  let sourcesBlock = MARK;
+  if (state.sourcesText.trim()) {
+    sourcesBlock = `▼ソース元\n${state.sourcesText.trim()}`;
+  }
+
+  let revisionsBlock = MARK;
+  if (state.revisionsText.trim()) {
+    revisionsBlock = `▼修正点\n${state.revisionsText.trim()}`;
+  }
+
+  const notesVal = state.notes.trim();
+  const notesBlock = notesVal ? `・不明点＆共有事項\n${notesVal}` : MARK;
+
+  const values = { channel, titleLine, frameioBlock, checkUrlBlock, dataUrlBlock, promaneBlock, revisionsBlock, timestampsBlock, sourcesBlock, notesBlock };
+
+  let text = pattern.template;
+  Object.keys(values).forEach(key => {
+    text = text.split(`{${key}}`).join(values[key]);
+  });
+
+  const lines = text.split('\n').filter(line => line.trim() !== MARK);
+  return lines.join('\n').replace(/\n{3,}/g, '\n\n').trim();
+}
+
+function updatePreview() {
+  $('preview').textContent = fillTemplate(currentPattern());
+}
+
+function clearAllFields() {
+  if (!confirm('入力内容をすべてクリアしますか？')) return;
+  state.channel = '';
+  state.title = '';
+  state.frameioSingle = '';
+  state.checkUrlSingle = '';
+  state.dataUrlSingle = '';
+  state.promaneSingle = '';
+  state.multiMode = false;
+  state.items = [{ title: '', frameio: '', checkUrl: '', dataUrl: '', promane: '' }];
+  state.promaneIndividual = false;
+  state.dataUrlIndividual = false;
+  state.notes = '';
+  state.revisionsText = '';
+  state.timestampsText = '';
+  state.sourcesText = '';
+  state.timestampSummary = false;
+
+  $('channel').value = '';
+  ['title', 'frameioSingle', 'checkUrlSingle', 'dataUrlSingle', 'promaneSingle', 'notes'].forEach(id => { $(id).value = ''; });
+  $('revisionsText').value = '';
+  $('timestampsText').value = '';
+  $('sourcesText').value = '';
+  $('timestampSummaryToggle').querySelector('.mode-btn').classList.remove('active');
+  renderTimestampArea();
+  renderItemsUI();
+  updatePreview();
+}
+
+/* --- channel modal --- */
+function openChannelModal() {
+  renderChannelModalList();
+  $('channelModalOverlay').classList.add('show');
+}
+function closeChannelModal() {
+  $('channelModalOverlay').classList.remove('show');
+}
+function renderChannelModalList() {
+  const el = $('chanList');
+  el.innerHTML = '';
+  if (state.channels.length === 0) {
+    const p = document.createElement('p');
+    p.style.cssText = 'color:var(--sub);font-size:12.5px;margin:0 0 10px;';
+    p.textContent = '登録済みのチャンネルはありません。';
+    el.appendChild(p);
+    return;
+  }
+  state.channels.forEach((name, i) => {
+    const row = document.createElement('div');
+    row.className = 'dyn-row';
+    row.innerHTML = `<input type="text" value="${escapeAttr(name)}" readonly style="background:#f5f6f8;"><button type="button" class="row-remove">×</button>`;
+    row.querySelector('.row-remove').addEventListener('click', () => {
+      state.channels.splice(i, 1);
+      saveChannels();
+      renderChannelModalList();
+      renderChannelOptions();
+      updatePreview();
+    });
+    el.appendChild(row);
+  });
+}
+function addChannel() {
+  const input = $('chanNewInput');
+  const name = input.value.trim();
+  if (!name) return;
+  if (!state.channels.includes(name)) {
+    state.channels.push(name);
+    saveChannels();
+    renderChannelOptions();
+  }
+  input.value = '';
+  renderChannelModalList();
+}
+
+/* --- pattern modal --- */
+function insertAtCursor(textarea, text) {
+  const start = textarea.selectionStart ?? textarea.value.length;
+  const end = textarea.selectionEnd ?? textarea.value.length;
+  const val = textarea.value;
+  textarea.value = val.slice(0, start) + text + val.slice(end);
+  textarea.selectionStart = textarea.selectionEnd = start + text.length;
+  textarea.focus();
+}
+function renderLegend() {
+  const el = $('patLegend');
+  el.innerHTML = '';
+  PLACEHOLDERS.forEach(ph => {
+    const chip = document.createElement('button');
+    chip.type = 'button';
+    chip.className = 'legend-chip';
+    chip.textContent = `{${ph.key}} ${ph.label}`;
+    chip.addEventListener('click', () => insertAtCursor($('patTemplateInput'), `{${ph.key}}`));
+    el.appendChild(chip);
+  });
+}
+function openPatternModal() {
+  state.modal.patternEditing = null;
+  renderPatternModal();
+  $('patternModalOverlay').classList.add('show');
+}
+function closePatternModal() {
+  $('patternModalOverlay').classList.remove('show');
+}
+function renderPatternModal() {
+  const editing = state.modal.patternEditing;
+  $('patListView').style.display = editing ? 'none' : '';
+  $('patEditView').style.display = editing ? '' : 'none';
+  if (editing) {
+    $('patLabelInput').value = editing.label;
+    $('patTemplateInput').value = editing.template;
+  } else {
+    renderPatternList();
+  }
+}
+function renderPatternList() {
+  const el = $('patList');
+  el.innerHTML = '';
+  state.patterns.forEach((p, i) => {
+    const row = document.createElement('div');
+    row.className = 'pattern-row';
+
+    const label = document.createElement('span');
+    label.className = 'pattern-row-label';
+    label.textContent = p.label;
+
+    const actions = document.createElement('div');
+    actions.className = 'pattern-row-actions';
+
+    const upBtn = document.createElement('button');
+    upBtn.type = 'button';
+    upBtn.textContent = '↑';
+    upBtn.disabled = i === 0;
+    upBtn.addEventListener('click', () => {
+      [state.patterns[i - 1], state.patterns[i]] = [state.patterns[i], state.patterns[i - 1]];
+      savePatterns();
+      renderPatternList();
+      renderTabs();
+    });
+
+    const downBtn = document.createElement('button');
+    downBtn.type = 'button';
+    downBtn.textContent = '↓';
+    downBtn.disabled = i === state.patterns.length - 1;
+    downBtn.addEventListener('click', () => {
+      [state.patterns[i + 1], state.patterns[i]] = [state.patterns[i], state.patterns[i + 1]];
+      savePatterns();
+      renderPatternList();
+      renderTabs();
+    });
+
+    const editBtn = document.createElement('button');
+    editBtn.type = 'button';
+    editBtn.textContent = '編集';
+    editBtn.addEventListener('click', () => {
+      state.modal.patternEditing = { label: p.label, template: p.template, _isNew: false, _origId: p.id };
+      renderPatternModal();
+    });
+
+    const delBtn = document.createElement('button');
+    delBtn.type = 'button';
+    delBtn.textContent = '削除';
+    delBtn.className = 'danger';
+    delBtn.addEventListener('click', () => {
+      if (state.patterns.length <= 1) { alert('最低1つは必要です'); return; }
+      if (!confirm(`「${p.label}」を削除しますか？`)) return;
+      state.patterns.splice(i, 1);
+      if (state.patternId === p.id) state.patternId = state.patterns[0].id;
+      savePatterns();
+      renderPatternList();
+      renderTabs();
+      renderFieldVisibility();
+      updatePreview();
+    });
+
+    actions.append(upBtn, downBtn, editBtn, delBtn);
+    row.append(label, actions);
+    el.appendChild(row);
+  });
+}
+function savePatternEdit() {
+  const editing = state.modal.patternEditing;
+  const label = $('patLabelInput').value.trim() || '無題';
+  const template = $('patTemplateInput').value;
+  if (editing._isNew) {
+    const id = 'pat_' + Date.now();
+    state.patterns.push({ id, label, template });
+    state.patternId = id;
+  } else {
+    const target = state.patterns.find(p => p.id === editing._origId);
+    target.label = label;
+    target.template = template;
+  }
+  savePatterns();
+  state.modal.patternEditing = null;
+  renderPatternModal();
+  renderTabs();
+  renderFieldVisibility();
+  updatePreview();
+}
+function resetPatternsToDefault() {
+  if (!confirm('定型文を初期状態に戻しますか？追加・編集した内容は消えます。')) return;
+  state.patterns = DEFAULT_PATTERNS.map(p => ({ ...p }));
+  state.patternId = state.patterns[0].id;
+  savePatterns();
+  renderPatternModal();
+  renderTabs();
+  renderFieldVisibility();
+  updatePreview();
+}
+
+function init() {
+  renderTabs();
+  renderFieldVisibility();
+  renderChannelOptions();
+  renderLegend();
+
+  $('timestampSummaryToggle').querySelector('.mode-btn').addEventListener('click', e => {
+    state.timestampSummary = !state.timestampSummary;
+    e.target.classList.toggle('active', state.timestampSummary);
+    renderTimestampArea();
+    updatePreview();
+  });
+  renderTimestampArea();
+
+  $('multiModeToggle').addEventListener('click', () => {
+    state.multiMode = !state.multiMode;
+    renderItemsUI();
+    updatePreview();
+  });
+  $('addItemRow').addEventListener('click', () => {
+    state.items.push({ title: '', frameio: '', checkUrl: '', dataUrl: '', promane: '' });
+    renderItemsUI();
+    updatePreview();
+  });
+  $('dataUrlIndividualToggle').addEventListener('click', () => {
+    state.dataUrlIndividual = !state.dataUrlIndividual;
+    renderItemsUI();
+    updatePreview();
+  });
+  $('promaneIndividualToggle').addEventListener('click', () => {
+    state.promaneIndividual = !state.promaneIndividual;
+    renderItemsUI();
+    updatePreview();
+  });
+
+  ['title', 'frameioSingle', 'checkUrlSingle', 'dataUrlSingle', 'promaneSingle', 'notes'].forEach(id => {
+    $(id).addEventListener('input', e => { state[id] = e.target.value; updatePreview(); });
+  });
+  $('channel').addEventListener('change', e => { state.channel = e.target.value; updatePreview(); });
+  $('revisionsText').addEventListener('input', e => { state.revisionsText = e.target.value; updatePreview(); });
+  $('timestampsText').addEventListener('input', e => { state.timestampsText = e.target.value; updatePreview(); });
+  $('sourcesText').addEventListener('input', e => { state.sourcesText = e.target.value; updatePreview(); });
+
+  $('clearAllBtn').addEventListener('click', clearAllFields);
+
+  $('managePatternsBtn').addEventListener('click', openPatternModal);
+  $('manageChannelsBtn').addEventListener('click', openChannelModal);
+  $('channelModalClose').addEventListener('click', closeChannelModal);
+  $('patternModalClose').addEventListener('click', closePatternModal);
+  $('channelModalOverlay').addEventListener('click', e => { if (e.target === e.currentTarget) closeChannelModal(); });
+  $('patternModalOverlay').addEventListener('click', e => { if (e.target === e.currentTarget) closePatternModal(); });
+
+  $('chanAddBtn').addEventListener('click', addChannel);
+  $('chanNewInput').addEventListener('keydown', e => { if (e.key === 'Enter') addChannel(); });
+
+  $('patAddBtn').addEventListener('click', () => {
+    state.modal.patternEditing = { label: '', template: '', _isNew: true };
+    renderPatternModal();
+  });
+  $('patCancelBtn').addEventListener('click', () => { state.modal.patternEditing = null; renderPatternModal(); });
+  $('patSaveBtn').addEventListener('click', savePatternEdit);
+  $('patResetBtn').addEventListener('click', resetPatternsToDefault);
+
+  $('copyBtn').addEventListener('click', async () => {
+    const text = fillTemplate(currentPattern());
+    try {
+      await navigator.clipboard.writeText(text);
+    } catch (e) {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+    }
+    const btn = $('copyBtn');
+    const feedback = $('copyFeedback');
+    btn.classList.add('copied');
+    btn.textContent = 'コピーしました！';
+    feedback.classList.add('show');
+    setTimeout(() => {
+      btn.classList.remove('copied');
+      btn.textContent = 'この文面をコピー';
+      feedback.classList.remove('show');
+    }, 1500);
+  });
+
+  updatePreview();
+}
+
+init();
+</script>
+</body>
+</html>
