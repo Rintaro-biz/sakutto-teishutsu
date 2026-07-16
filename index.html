@@ -553,7 +553,7 @@
       <div class="field" style="margin-bottom:0;">
         <label>テンプレート本文</label>
         <div class="legend" id="patLegend"></div>
-        <p class="modal-hint">タグをクリックするとカーソル位置に挿入されます。{channel}{timestampsBlock}{sourcesBlock}{notesBlock} は入力が空の場合、行ごと自動的に消えます。<br>見出しの文言を変えたい場合は、{frameioBlock:▼Frameio} のように「:」の後に文言をそのまま書くと見出しがその文言に差し替わります。対象: Frameioリンク・確認用URL・動画データ・プロマネ・見出しタイムスタンプ・ソース元・修正点</p>
+        <p class="modal-hint">タグをクリックするとカーソル位置に挿入されます。{channel}{timestampsBlock}{sourcesBlock}{notesBlock} は入力が空の場合、行ごと自動的に消えます。<br>見出しの文言を変えたい場合は、{frameioBlock:▼Frameio} のように「:」の後に文言をそのまま書くと見出しがその文言に差し替わります。対象: Frameioリンク・確認用URL・動画データ・プロマネ・見出しタイムスタンプ・ソース元・修正点・不明点＆共有事項</p>
         <textarea id="patTemplateInput" class="textarea-template"></textarea>
       </div>
       <div class="modal-footer">
@@ -594,6 +594,7 @@ const HEADING_DEFAULTS = {
   timestampsBlock: '▼見出しタイムスタンプ',
   sourcesBlock: '▼ソース元',
   revisionsBlock: '▼修正点',
+  notesBlock: '・不明点＆共有事項',
 };
 
 function customHeading(template, key) {
@@ -986,7 +987,7 @@ function fillTemplate(pattern) {
   }
 
   const notesVal = state.notes.trim();
-  const notesBlock = notesVal ? `・不明点＆共有事項\n${notesVal}` : MARK;
+  const notesBlock = notesVal ? `${headings.notesBlock}\n${notesVal}` : MARK;
 
   const values = { channel, titleLine, frameioBlock, checkUrlBlock, dataUrlBlock, promaneBlock, revisionsBlock, timestampsBlock, sourcesBlock, notesBlock };
 
