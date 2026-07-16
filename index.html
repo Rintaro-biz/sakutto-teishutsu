@@ -774,7 +774,7 @@ const state = {
   dataUrlSingle: '',
   promaneSingle: '',
   multiMode: false,
-  items: [{ title: '', frameio: '', checkUrl: '', dataUrl: '', promane: '' }],
+  items: [{ title: '', frameio: '', checkUrl: '', dataUrl: '', promane: '', progress: '', deadline: '' }],
   promaneIndividual: false,
   dataUrlIndividual: false,
   timestampSummary: false,
@@ -824,6 +824,8 @@ function currentLinkKinds(p) {
     checkUrl: usesPlaceholder(p, 'checkUrlBlock'),
     dataUrl: usesPlaceholder(p, 'dataUrlBlock'),
     promane: usesPlaceholder(p, 'promaneBlock'),
+    progress: usesPlaceholder(p, 'progressText'),
+    deadline: usesPlaceholder(p, 'deadlineText'),
   };
 }
 
@@ -835,8 +837,6 @@ function renderFieldVisibility() {
   $('section-timestamps').style.display = usesPlaceholder(p, 'timestampsBlock') ? '' : 'none';
   $('section-sources').style.display = usesPlaceholder(p, 'sourcesBlock') ? '' : 'none';
   $('field-notes').style.display = usesPlaceholder(p, 'notesBlock') ? '' : 'none';
-  $('field-progress').style.display = usesPlaceholder(p, 'progressText') ? '' : 'none';
-  $('field-deadline').style.display = usesPlaceholder(p, 'deadlineText') ? '' : 'none';
   renderItemsUI();
 }
 
@@ -848,6 +848,8 @@ function renderItemsUI() {
   $('section-checkUrl').style.display = (kinds.checkUrl && !state.multiMode) ? '' : 'none';
   $('section-dataUrl').style.display = kinds.dataUrl ? '' : 'none';
   $('section-promane').style.display = kinds.promane ? '' : 'none';
+  $('field-progress').style.display = (kinds.progress && !state.multiMode) ? '' : 'none';
+  $('field-deadline').style.display = (kinds.deadline && !state.multiMode) ? '' : 'none';
 
   $('multiModeToggle').textContent = state.multiMode ? '通常に戻す' : '＋ 複数登録する';
   $('multiModeToggle').classList.toggle('active', state.multiMode);
@@ -891,7 +893,7 @@ function renderItemRows(kinds) {
     removeBtn.textContent = '×';
     removeBtn.addEventListener('click', () => {
       state.items.splice(i, 1);
-      if (state.items.length === 0) state.items.push({ title: '', frameio: '', checkUrl: '', dataUrl: '', promane: '' });
+      if (state.items.length === 0) state.items.push({ title: '', frameio: '', checkUrl: '', dataUrl: '', promane: '', progress: '', deadline: '' });
       renderItemRows(kinds);
       updatePreview();
     });
@@ -912,10 +914,39 @@ function renderItemRows(kinds) {
       card.appendChild(wrap);
     };
 
+    const addTextareaField = (key, label, placeholder) => {
+      const wrap = document.createElement('div');
+      wrap.className = 'item-link-field';
+      const lbl = document.createElement('label');
+      lbl.textContent = label;
+      const input = document.createElement('textarea');
+      input.className = 'textarea-paste';
+      input.placeholder = placeholder;
+      input.value = item[key];
+      input.addEventListener('input', e => { item[key] = e.target.value; updatePreview(); });
+      wrap.append(lbl, input);
+      card.appendChild(wrap);
+    };
+
+    const addDateField = (key, label) => {
+      const wrap = document.createElement('div');
+      wrap.className = 'item-link-field';
+      const lbl = document.createElement('label');
+      lbl.textContent = label;
+      const input = document.createElement('input');
+      input.type = 'date';
+      input.value = item[key];
+      input.addEventListener('input', e => { item[key] = e.target.value; updatePreview(); });
+      wrap.append(lbl, input);
+      card.appendChild(wrap);
+    };
+
     if (kinds.frameio) addLinkField('frameio', 'Frameioリンク', 'URLを貼り付け');
     if (kinds.checkUrl) addLinkField('checkUrl', '確認用URL', 'URLを貼り付け');
     if (kinds.dataUrl && state.dataUrlIndividual) addLinkField('dataUrl', '動画データ', 'URLを貼り付け');
     if (kinds.promane && state.promaneIndividual) addLinkField('promane', 'プロマネ', 'URLを貼り付け');
+    if (kinds.progress) addTextareaField('progress', '進捗', '例）撮影完了、編集中');
+    if (kinds.deadline) addDateField('deadline', '初校納期');
 
     el.appendChild(card);
   });
@@ -946,17 +977,16 @@ function renderTimestampArea() {
 function buildTitleLine() {
   if (!state.multiMode) {
     const t = state.title.trim();
-    return t ? `「${t}」` : '「動画タイトル」';
+    return t ? `「${t}」` : '';
   }
   const titles = state.items.map(it => it.title.trim()).filter(Boolean);
-  if (titles.length === 0) return '「動画タイトル」';
+  if (titles.length === 0) return '';
   return titles.map(t => `「${t}」`).join('・');
 }
 
 function buildPrimaryBlock(primaryKey, primaryHeading, primarySingle, dataUrlHeading, promaneHeading) {
   if (!state.multiMode) {
-    const url = primarySingle.trim() || '※リンク貼る';
-    return `${primaryHeading}\n${url}`;
+    return `${primaryHeading}\n${primarySingle.trim()}`;
   }
   const includeDataUrl = primaryKey === 'checkUrl' && state.dataUrlIndividual;
   const includePromane = state.promaneIndividual;
@@ -971,12 +1001,12 @@ function buildPrimaryBlock(primaryKey, primaryHeading, primarySingle, dataUrlHea
     .map(it => {
       const lines = [];
       if (it.title.trim()) lines.push(`【${it.title.trim()}】`);
-      lines.push(primaryHeading, (it[primaryKey] || '').trim() || '※リンク貼る');
+      lines.push(primaryHeading, (it[primaryKey] || '').trim());
       if (includeDataUrl) {
-        lines.push(dataUrlHeading, (it.dataUrl || '').trim() || '※リンク貼る');
+        lines.push(dataUrlHeading, (it.dataUrl || '').trim());
       }
       if (includePromane) {
-        lines.push(promaneHeading, (it.promane || '').trim() || '※リンク貼る');
+        lines.push(promaneHeading, (it.promane || '').trim());
       }
       return lines.join('\n');
     })
@@ -988,8 +1018,7 @@ function buildStandaloneBlock(heading, individual, singleValue, MARK) {
     return MARK;
   }
   const effectiveHeading = state.multiMode ? `${heading}（まとめ）` : heading;
-  const url = singleValue.trim() || '※リンク貼る';
-  return `${effectiveHeading}\n${url}`;
+  return `${effectiveHeading}\n${singleValue.trim()}`;
 }
 
 function fillTemplate(pattern) {
@@ -1003,7 +1032,6 @@ function fillTemplate(pattern) {
   });
 
   const channel = state.channel.trim() ? `【${state.channel.trim()}】` : MARK;
-  const titleLine = buildTitleLine();
   const frameioBlock = buildPrimaryBlock('frameio', headings.frameioBlock, state.frameioSingle, headings.dataUrlBlock, headings.promaneBlock);
   const checkUrlBlock = buildPrimaryBlock('checkUrl', headings.checkUrlBlock, state.checkUrlSingle, headings.dataUrlBlock, headings.promaneBlock);
   const dataUrlBlock = buildStandaloneBlock(headings.dataUrlBlock, state.dataUrlIndividual, state.dataUrlSingle, MARK);
@@ -1029,17 +1057,33 @@ function fillTemplate(pattern) {
   const notesVal = state.notes.trim();
   const notesBlock = notesVal ? `${headings.notesBlock}\n${notesVal}` : MARK;
 
-  const progressText = state.progressText.trim() || '※進捗を記入';
-  const deadlineText = formatDeadline(state.deadlineDate) || '※日付を選択';
+  function renderOnce(titleLine, progressText, deadlineText) {
+    const values = { channel, titleLine, frameioBlock, checkUrlBlock, dataUrlBlock, promaneBlock, revisionsBlock, timestampsBlock, sourcesBlock, notesBlock, progressText, deadlineText };
+    let out = text;
+    Object.keys(values).forEach(key => {
+      out = out.split(`{${key}}`).join(values[key]);
+    });
+    const lines = out.split('\n').filter(line => line.trim() !== MARK.trim());
+    return lines.join('\n').replace(/\n{3,}/g, '\n\n').trim();
+  }
 
-  const values = { channel, titleLine, frameioBlock, checkUrlBlock, dataUrlBlock, promaneBlock, revisionsBlock, timestampsBlock, sourcesBlock, notesBlock, progressText, deadlineText };
+  if (state.multiMode && usesPlaceholder(pattern, 'progressText')) {
+    const rows = state.items.filter(it => it.title.trim() || (it.progress || '').trim() || (it.deadline || '').trim());
+    const list = rows.length ? rows : [{ title: '', progress: '', deadline: '' }];
+    return list
+      .map(it => {
+        const titleLine = it.title.trim() ? `「${it.title.trim()}」` : '';
+        const progressText = (it.progress || '').trim();
+        const deadlineText = formatDeadline(it.deadline) || '';
+        return renderOnce(titleLine, progressText, deadlineText);
+      })
+      .join('\n\n');
+  }
 
-  Object.keys(values).forEach(key => {
-    text = text.split(`{${key}}`).join(values[key]);
-  });
-
-  const lines = text.split('\n').filter(line => line.trim() !== MARK.trim());
-  return lines.join('\n').replace(/\n{3,}/g, '\n\n').trim();
+  const titleLine = buildTitleLine();
+  const progressText = state.progressText.trim();
+  const deadlineText = formatDeadline(state.deadlineDate) || '';
+  return renderOnce(titleLine, progressText, deadlineText);
 }
 
 function updatePreview() {
@@ -1055,7 +1099,7 @@ function clearAllFields() {
   state.dataUrlSingle = '';
   state.promaneSingle = '';
   state.multiMode = false;
-  state.items = [{ title: '', frameio: '', checkUrl: '', dataUrl: '', promane: '' }];
+  state.items = [{ title: '', frameio: '', checkUrl: '', dataUrl: '', promane: '', progress: '', deadline: '' }];
   state.promaneIndividual = false;
   state.dataUrlIndividual = false;
   state.notes = '';
@@ -1298,7 +1342,7 @@ function init() {
     updatePreview();
   });
   $('addItemRow').addEventListener('click', () => {
-    state.items.push({ title: '', frameio: '', checkUrl: '', dataUrl: '', promane: '' });
+    state.items.push({ title: '', frameio: '', checkUrl: '', dataUrl: '', promane: '', progress: '', deadline: '' });
     renderItemsUI();
     updatePreview();
   });
