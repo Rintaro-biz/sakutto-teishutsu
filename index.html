@@ -543,7 +543,7 @@
       <div class="field" style="margin-bottom:0;">
         <label>テンプレート本文</label>
         <div class="legend" id="patLegend"></div>
-        <p class="modal-hint">タグをクリックするとカーソル位置に挿入されます。{channel}{timestampsBlock}{sourcesBlock}{notesBlock} は入力が空の場合、行ごと自動的に消えます。</p>
+        <p class="modal-hint">タグをクリックするとカーソル位置に挿入されます。{channel}{timestampsBlock}{sourcesBlock}{notesBlock} は入力が空の場合、行ごと自動的に消えます。<br>見出しの文言を変えたい場合は、{frameioBlock:Frameio} のように「:」の後に文言を書くと見出しがその文言に差し替わります（▼は自動で付きます）。対象: Frameioリンク・確認用URL・動画データ・プロマネ・見出しタイムスタンプ・ソース元・修正点</p>
         <textarea id="patTemplateInput" class="textarea-template"></textarea>
       </div>
       <div class="modal-footer">
@@ -570,6 +570,25 @@ const PLACEHOLDERS = [
   { key: 'sourcesBlock', label: 'ソース元' },
   { key: 'notesBlock', label: '不明点＆共有事項' },
 ];
+
+const HEADING_DEFAULTS = {
+  frameioBlock: '▼Frameioリンク',
+  checkUrlBlock: '▼確認用URL',
+  dataUrlBlock: '▼動画データ',
+  promaneBlock: '▼プロマネ',
+  timestampsBlock: '▼見出しタイムスタンプ',
+  sourcesBlock: '▼ソース元',
+  revisionsBlock: '▼修正点',
+};
+
+function customHeading(template, key) {
+  const m = template.match(new RegExp(`\\{${key}(?::([^}]*))?\\}`));
+  if (m && m[1] && m[1].trim()) {
+    const label = m[1].trim();
+    return label.startsWith('▼') ? label : `▼${label}`;
+  }
+  return HEADING_DEFAULTS[key];
+}
 
 const DEFAULT_PATTERNS = [
   {
@@ -726,7 +745,7 @@ function currentPattern() {
   return state.patterns.find(p => p.id === state.patternId) || state.patterns[0];
 }
 function usesPlaceholder(pattern, key) {
-  return pattern.template.includes(`{${key}}`);
+  return new RegExp(`\\{${key}(?::[^}]*)?\\}`).test(pattern.template);
 }
 
 function renderTabs() {
@@ -879,7 +898,7 @@ function buildTitleLine() {
   return titles.map(t => `「${t}」`).join('・');
 }
 
-function buildPrimaryBlock(primaryKey, primaryHeading, primarySingle) {
+function buildPrimaryBlock(primaryKey, primaryHeading, primarySingle, dataUrlHeading, promaneHeading) {
   if (!state.multiMode) {
     const url = primarySingle.trim() || '※リンク貼る';
     return `${primaryHeading}\n${url}`;
@@ -899,10 +918,10 @@ function buildPrimaryBlock(primaryKey, primaryHeading, primarySingle) {
       if (it.title.trim()) lines.push(`【${it.title.trim()}】`);
       lines.push(primaryHeading, (it[primaryKey] || '').trim() || '※リンク貼る');
       if (includeDataUrl) {
-        lines.push('▼動画データ', (it.dataUrl || '').trim() || '※リンク貼る');
+        lines.push(dataUrlHeading, (it.dataUrl || '').trim() || '※リンク貼る');
       }
       if (includePromane) {
-        lines.push('▼プロマネ', (it.promane || '').trim() || '※リンク貼る');
+        lines.push(promaneHeading, (it.promane || '').trim() || '※リンク貼る');
       }
       return lines.join('\n');
     })
@@ -919,30 +938,37 @@ function buildStandaloneBlock(heading, individual, singleValue, MARK) {
 }
 
 function fillTemplate(pattern) {
-  const MARK = ' RM ';
+  const MARK = ' RM ';
+
+  const headings = {};
+  let text = pattern.template;
+  Object.keys(HEADING_DEFAULTS).forEach(key => {
+    headings[key] = customHeading(text, key);
+    text = text.replace(new RegExp(`\\{${key}(?::[^}]*)?\\}`, 'g'), `{${key}}`);
+  });
 
   const channel = state.channel.trim() ? `【${state.channel.trim()}】` : MARK;
   const titleLine = buildTitleLine();
-  const frameioBlock = buildPrimaryBlock('frameio', '▼Frameioリンク', state.frameioSingle);
-  const checkUrlBlock = buildPrimaryBlock('checkUrl', '▼確認用URL', state.checkUrlSingle);
-  const dataUrlBlock = buildStandaloneBlock('▼動画データ', state.dataUrlIndividual, state.dataUrlSingle, MARK);
-  const promaneBlock = buildStandaloneBlock('▼プロマネ', state.promaneIndividual, state.promaneSingle, MARK);
+  const frameioBlock = buildPrimaryBlock('frameio', headings.frameioBlock, state.frameioSingle, headings.dataUrlBlock, headings.promaneBlock);
+  const checkUrlBlock = buildPrimaryBlock('checkUrl', headings.checkUrlBlock, state.checkUrlSingle, headings.dataUrlBlock, headings.promaneBlock);
+  const dataUrlBlock = buildStandaloneBlock(headings.dataUrlBlock, state.dataUrlIndividual, state.dataUrlSingle, MARK);
+  const promaneBlock = buildStandaloneBlock(headings.promaneBlock, state.promaneIndividual, state.promaneSingle, MARK);
 
   let timestampsBlock = MARK;
   if (state.timestampSummary) {
-    timestampsBlock = `▼見出しタイムスタンプ\n概要欄に記載`;
+    timestampsBlock = `${headings.timestampsBlock}\n概要欄に記載`;
   } else if (state.timestampsText.trim()) {
-    timestampsBlock = `▼見出しタイムスタンプ\n${state.timestampsText.trim()}`;
+    timestampsBlock = `${headings.timestampsBlock}\n${state.timestampsText.trim()}`;
   }
 
   let sourcesBlock = MARK;
   if (state.sourcesText.trim()) {
-    sourcesBlock = `▼ソース元\n${state.sourcesText.trim()}`;
+    sourcesBlock = `${headings.sourcesBlock}\n${state.sourcesText.trim()}`;
   }
 
   let revisionsBlock = MARK;
   if (state.revisionsText.trim()) {
-    revisionsBlock = `▼修正点\n${state.revisionsText.trim()}`;
+    revisionsBlock = `${headings.revisionsBlock}\n${state.revisionsText.trim()}`;
   }
 
   const notesVal = state.notes.trim();
@@ -950,12 +976,11 @@ function fillTemplate(pattern) {
 
   const values = { channel, titleLine, frameioBlock, checkUrlBlock, dataUrlBlock, promaneBlock, revisionsBlock, timestampsBlock, sourcesBlock, notesBlock };
 
-  let text = pattern.template;
   Object.keys(values).forEach(key => {
     text = text.split(`{${key}}`).join(values[key]);
   });
 
-  const lines = text.split('\n').filter(line => line.trim() !== MARK);
+  const lines = text.split('\n').filter(line => line.trim() !== MARK.trim());
   return lines.join('\n').replace(/\n{3,}/g, '\n\n').trim();
 }
 
