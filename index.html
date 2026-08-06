@@ -609,6 +609,10 @@ const HEADING_DEFAULTS = {
   notesBlock: '・不明点＆共有事項',
 };
 
+function safeText(str) {
+  return (str || '').replace(/_/g, ' _ ').replace(/ {2,}/g, ' ').trim();
+}
+
 function formatDeadline(dateStr) {
   if (!dateStr) return '';
   const d = new Date(`${dateStr}T00:00:00`);
@@ -977,11 +981,11 @@ function renderTimestampArea() {
 function buildTitleLine() {
   if (!state.multiMode) {
     const t = state.title.trim();
-    return t ? `「${t}」` : '';
+    return t ? `「${safeText(t)}」` : '';
   }
   const titles = state.items.map(it => it.title.trim()).filter(Boolean);
   if (titles.length === 0) return '';
-  return titles.map(t => `「${t}」`).join('・');
+  return titles.map(t => `「${safeText(t)}」`).join('・');
 }
 
 function buildPrimaryBlock(primaryKey, primaryHeading, primarySingle, dataUrlHeading, promaneHeading) {
@@ -1000,7 +1004,7 @@ function buildPrimaryBlock(primaryKey, primaryHeading, primarySingle, dataUrlHea
   return list
     .map(it => {
       const lines = [];
-      if (it.title.trim()) lines.push(`【${it.title.trim()}】`);
+      if (it.title.trim()) lines.push(`【${safeText(it.title.trim())}】`);
       lines.push(primaryHeading, (it[primaryKey] || '').trim());
       if (includeDataUrl) {
         lines.push(dataUrlHeading, (it.dataUrl || '').trim());
@@ -1031,7 +1035,7 @@ function fillTemplate(pattern) {
     text = text.replace(new RegExp(`\\{${key}(?::[^}]*)?\\}`, 'g'), `{${key}}`);
   });
 
-  const channel = state.channel.trim() ? `【${state.channel.trim()}】` : MARK;
+  const channel = state.channel.trim() ? `【${safeText(state.channel.trim())}】` : MARK;
   const frameioBlock = buildPrimaryBlock('frameio', headings.frameioBlock, state.frameioSingle, headings.dataUrlBlock, headings.promaneBlock);
   const checkUrlBlock = buildPrimaryBlock('checkUrl', headings.checkUrlBlock, state.checkUrlSingle, headings.dataUrlBlock, headings.promaneBlock);
   const dataUrlBlock = buildStandaloneBlock(headings.dataUrlBlock, state.dataUrlIndividual, state.dataUrlSingle, MARK);
@@ -1072,7 +1076,7 @@ function fillTemplate(pattern) {
     const list = rows.length ? rows : [{ title: '', progress: '', deadline: '' }];
     return list
       .map(it => {
-        const titleLine = it.title.trim() ? `「${it.title.trim()}」` : '';
+        const titleLine = it.title.trim() ? `「${safeText(it.title.trim())}」` : '';
         const progressText = (it.progress || '').trim();
         const deadlineText = formatDeadline(it.deadline) || '';
         return renderOnce(titleLine, progressText, deadlineText);
